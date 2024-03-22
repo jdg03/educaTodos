@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/styleregistro.css">
+    <link rel="stylesheet" href="../css/styleheader.css">
+</head>
+
+<body class="fondo">
+
+    <!-- sección menu -->
+    <header class="header">
+        <div class="logo">
+            <img src="../img/EDUCATODOS.png" alt="">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/educaTodos">Inicio</a></li>
+                <li><a href="#">Matricula</a></li>
+                <li><a href="#">Expediente Estudiantil</a></li>
+                <li><a href="#">Traslado</a></li>
+                <li><a href="#">Instituciones</a></li>
+                <li><a href="#">Solicitudes</a></li>
+            </ul>
+        </nav>
+        <span>
+            <a class="btn" nombre="login" href="/login/page"><button>Iniciar Sesión</button></a>
+            <a class="btn" nombre="registro" href="/singUp/page"><button>Registrarse</button></a>
+        </span>
+        <button class="navbar_toogle-btn">
+            <img src="img/puntos.ico" alt="">
+        </button>
+        <div class="navbar_mobile-menu">
+            <ul class="nav-list-mobile">
+                <li class="nav_link-mobile"><a href="/index.html">Inicio</a></li>
+                <li class="nav_link-mobile"><a href="#">Matricula</a></li>
+                <li class="nav_link-mobile"><a href="#">Expediente Estudiantil</a></li>
+                <li class="nav_link-mobile"><a href="#">Traslado</a></li>
+                <li class="nav_link-mobile"><a href="#">Instituciones</a></li>
+                <li class="nav_link-mobile"><a href="#">Solicitudes</a></li>
+            </ul>
+        </div>
+
+        </nav>
+    </header>
+
+    <!-- sección registro -->
+    <div class="contenedor-formulario">
+        <div class="informacion">
+            <div class="info-childs">
+                <h2>BIENVENIDOS</h2>
+                <p>Ya tienes cuenta en EDUCATODOS</p>
+                <div class="buttonsesion">
+                    <button type="submit">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Crear una cuenta</h2>
+                <form class="form">
+                    <div class="form-group">
+                        <span>Primer Nombre</span>
+                        <input name="primernombre" type="text" placeholder="Ingrese su primer nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <span>Segundo Nombre</span>
+
+                        <input name="segundonombre" placeholder="Ingrese su segundo nombre" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <span>Primer Apellido</span>
+                        <input name="primerapellido" placeholder="Ingrese su primer apellido" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <span>Segundo Apellido</span>
+                        <input name="segundoapellido" placeholder="Ingrese su segundo apellido" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <span>DNI</span>
+                        <input name="dni" placeholder="Ingrese su DNI" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <span>Correo Electrónico</span>
+                        <input name="correo" placeholder="Ingrese su correo" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <span>Contraseña</span>
+                        <input name="password" placeholder="Ingrese contraseña" type="password">
+                    </div>
+
+                    <div class="form-group">
+                        <span>Confirmar Contraseña</span>
+                        <input name="confirmarpassword" placeholder="Ingrese contraseña de nuevo" type="password">
+                    </div>
+
+                    <div class="button">
+                        <button type="submit">Registrarse</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footerBottom">
+            <p>EDUCATODOS &copy;2024 Diseñado por <span class="designer">Grupo 5</span></p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

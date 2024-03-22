@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUCATODOS</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/styleiniciousuario.css">
+    <link rel="stylesheet" href="../css/styleheader.css">
+</head>
+
+<body class="fondo">
+
+    <!-- sección menu -->
+    <header class="header">
+        <div class="logo">
+            <img src="../img/EDUCATODOS.png" alt="">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="#">Matricula</a></li>
+                <li><a href="#">Expediente Estudiantil</a></li>
+                <li><a href="#">Traslado</a></li>
+                <li><a href="#">Instituciones</a></li>
+                <li><a href="#">Solicitudes</a></li>
+            </ul>
+        </nav>
+
+        <div>
+            <a class="btn" nombre="login" href="/login.html"><button>Iniciar Sesión</button></a>
+            <a class="btn" nombre="registro" href="/registro.html"><button>Registrarse</button></a>
+        </div>
+
+        <button class="navbar_toogle-btn">
+            <img src="../img/puntos.ico" alt="">
+        </button>
+        <div class="navbar_mobile-menu">
+            <ul class="nav-list-mobile">
+                <li class="nav_link-mobile"><a href="/index.html">Inicio</a></li>
+                <li class="nav_link-mobile"><a href="#">Matricula</a></li>
+                <li class="nav_link-mobile"><a href="#">Expediente Estudiantil</a></li>
+                <li class="nav_link-mobile"><a href="#">Traslado</a></li>
+                <li class="nav_link-mobile"><a href="#">Instituciones</a></li>
+                <li class="nav_link-mobile"><a href="#">Solicitudes</a></li>
+            </ul>
+        </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Bienvenido <%= user.nombre %></h1>
+        </div>
+    </div>
+
+    <!-- sección SERVICIOS -->
+    <section id="servicios" class="servicios">
+        <div class="fila">
+            <div class="col">
+                <div class="card">
+                    <div class="icono">
+                        <img src="../img/matricula.ico" class="img">
+                    </div>
+                    <h3>Matricula Escolar</h3>
+                    <input name="matricula" type="submit" value="Ver Más">
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div>
+                        <img src="../img/traslado.ico" class="img">
+                    </div>
+                    <h3>Traslado de Institución</h3>
+                    <input name="traslado" type="submit" value="Ver Más">
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div>
+                        <img src="../img/expediente.ico" class="img">
+                    </div>
+                    <h3>Expediente Estudiantil</h3>
+                    <input name="expediente" type="submit" value="Ver Más">
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="imagen">
+                        <img src="../img/institutos.ico" class="img">
+                    </div>
+                    <h3>Instituciones Educativas</h3>
+                    <input name="instituciones" type="submit" value="Ver Más">
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div>
+                        <img src="../img/solicitudes.ico" class="img">
+                    </div>
+                    <h3>Solicitudes Varias</h3>
+                    <input name="solicitudes" type="submit" value="Ver Más">
+                </div>
+            </div>
+        </div>
+
+        <div class="cerrarsesion">
+            <button type="submit">Cerrar Sesión</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footerBottom">
+            <p>EDUCATODOS &copy;2024 Diseñado por <span class="designer">Grupo 5</span></p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

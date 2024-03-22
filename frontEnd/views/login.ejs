@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/stylelogin.css">
+    <link rel="stylesheet" href="../css/styleheader.css">
+</head>
+<body class="fondo">
+     <!-- sección menu -->
+     <header class="header">
+        <div class="logo">
+            <img src="../img/EDUCATODOS.png" alt="">
+        </div>
+        <nav class="navbar_nav">
+            <ul class="nav-links">
+                <li><a href="/educaTodos">Inicio</a></li>
+                <li><a href="#">Matricula</a></li>
+                <li><a href="#">Expediente Estudiantil</a></li>
+                <li><a href="#">Traslado</a></li>
+                <li><a href="#">Instituciones</a></li>
+                <li><a href="#">Solicitudes</a></li>
+           </ul>            
+        </nav>
+        <span>
+            <a class="btn" nombre="login" href="/login/page"><button>Iniciar Sesión</button></a>
+            <a class="btn" nombre="registro" href="/singUp/page"><button>Registrarse</button></a>
+        </span>
+
+        <button class="navbar_toogle-btn">
+            <img src="../img/puntos.ico" alt="">
+        </button>
+        <div class="navbar_mobile-menu">
+            <ul class="nav-list-mobile">
+                <li class="nav_link-mobile"><a href="/index.html">Inicio</a></li>
+                <li class="nav_link-mobile"><a href="#">Matricula</a></li>
+                <li class="nav_link-mobile"><a href="#">Expediente Estudiantil</a></li>
+                <li class="nav_link-mobile"><a href="#">Traslado</a></li>
+                <li class="nav_link-mobile"><a href="#">Instituciones</a></li>
+                <li class="nav_link-mobile"><a href="#">Solicitudes</a></li>
+           </ul>      
+        </div>
+
+		</nav>  
+    </header>
+
+    <!-- sección inicio sesión -->
+    <div class="contenedor-formulario">
+        <div class="informacion">
+            <div class="info-childs">
+                <h2>BIENVENIDOS</h2>
+                <p>Si aún no tienes cuenta en EDUCATODOS creála a continuación</p>
+                <div class="buttonregistro">
+                    <button type="submit">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    
+            <div class="form-information">
+                <div class="form-information-childs">
+                    <h2>Iniciar Sesión</h2>
+            <form class="form">
+                <div class="form-group">
+                    <span>Correo Electrónico</span>
+                    <i class='bx bx-envelope'></i>
+                    <input name="correo" placeholder="Ingrese su correo" type="text">
+                </div>
+
+                <div class="form-group">
+                    <span>Contraseña</span>
+                    <i class='bx bx-lock-alt'></i>
+                    <input name="password" placeholder="Ingrese su contraseña" type="password">
+                </div>
+
+                <div class="button">
+                    <button name="acceder" type="submit">Acceder</button>
+                </div>
+                
+        </form>
+                </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footerBottom">
+            <p>EDUCATODOS &copy;2024   Diseñado por <span class="designer">Grupo 5</span></p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
