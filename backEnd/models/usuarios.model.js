@@ -8,7 +8,7 @@ class Usuario {
           const result = await pool
             .request()
             .input("id", id)
-            .query("SELECT * FROM usuarios WHERE id = @id");
+            .query("SELECT * FROM usuarios WHERE id_usuario = @id");
           return result.recordset[0];
         } catch (error) {
           console.log(error);
@@ -21,7 +21,7 @@ class Usuario {
       const result = await pool
         .request()
         .input("correo", email)
-        .query("SELECT * FROM usuarios WHERE correo = @correo");
+        .query("SELECT * FROM usuarios WHERE correo_electronico = @correo");
       return result.recordset[0];
     } catch (error) {
       console.log(error);
@@ -29,16 +29,25 @@ class Usuario {
     }
   }
 
-  async createUser(nombre, correo, contraseña, rol) {
+  async getAllUsers() {
+    try {
+      const result = await pool.request().query("SELECT * FROM usuarios");
+      return result.recordset;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  async createUser(correo, contraseña, id_rol) {
     try {
       const result = await pool
         .request()
-        .input("nombre", nombre)
         .input("correo", correo)
         .input("contraseña", contraseña)
-        .input("rol", rol)
+        .input("id_rol", id_rol)
         .query(
-          "INSERT INTO usuarios (nombre, correo, contraseña, rol) VALUES (@nombre, @correo, @contraseña, @rol)"
+          "INSERT INTO usuarios (correo_electronico, clave, id_rol) VALUES (@correo, @contraseña, @id_rol)"
         );
       return result;
     } catch (error) {

@@ -41,7 +41,13 @@ app.use(session({
 }));
 
 // _____________Rutas________________
-import routerLogin from "./routes/login.route.js";
+import routerLogin from "./routes/usuario.route.js";
+import routerGeneros from "./routes/generos.route.js"
+import routerRol from './routes/roles.route.js';
+import routerPersona from './routes/personas.route.js'
 
 app.use(routerLogin);
+app.use(routerGeneros);
+app.use(routerRol);
+app.use(routerPersona);
 

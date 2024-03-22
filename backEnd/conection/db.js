@@ -21,7 +21,7 @@ export const pool = new sql.ConnectionPool({
 
 // Conectar al servidor de base de datos
 pool.connect()
-    .then(() => console.log(`Conexión exitosa a la base de ${DB_DATABASE}`))
+    .then(() => console.log(`Conexión exitosa a la base de datos de ${DB_DATABASE}`))
     .catch(err => console.error('Error al conectar a SQL Server', err));
 
 export default pool;

@@ -1,8 +1,14 @@
 import Router from "express";
-import {login, singUp, authSignUp, authLoginSession, bienvenido, bienvenidoAdmi, logout}  from "../controllers/login.controller.js"
+import {findUserById,getAllUsers,login, singUp, authSignUp, authLoginSession, bienvenido, bienvenidoAdmi, logout}  from "../controllers/usuario.controller.js"
 import {verifySession, verifyRole} from "../middlewares/verify.js";
 
 const router = Router();
+
+//ruta para obtener todos los usuarios
+router.get('/usuarios',getAllUsers)
+
+//ruta para obtener un usuario
+router.get('/usuario/id',findUserById)
 
 //ruta que lleva a la pagina de registro
 router.get('/login/page',login)

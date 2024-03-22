@@ -1,5 +1,3 @@
-
-
 export const verifySession = (req, res, next) => {
     
    // Verificar si hay un usuario almacenado en la sesión

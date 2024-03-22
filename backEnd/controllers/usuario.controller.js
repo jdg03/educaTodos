@@ -1,5 +1,5 @@
 import { ruta } from "../service.js";
-import Usuario from "../models/usuario.model.js"
+import Usuario from "../models/usuarios.model.js"
 import bcrypt from "bcryptjs";
 
 
@@ -13,12 +13,38 @@ export const singUp = async (req, res) => {
   res.render(ruta + "/singUp", { message: null });
 };
 
+
+export const findUserById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await Usuario.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: "Usuario no encontrado" });
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Error en el servidor" });
+  }
+};
+
+// Controlador para obtener todos los usuarios
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await Usuario.getAllUsers();
+    res.status(200).json(users);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Error en el servidor" });
+  }
+};
+
 //metodo para registarse
 export const authSignUp = async (req, res) => {
-  const { nombre, correo, contraseña, contraseñaConfirm } = req.body;
+  const {correo, contraseña, contraseñaConfirm } = req.body;
 
   try {
-    const existingUser = await UserModel.findByEmail(correo);
+    const existingUser = await Usuario.findByEmail(correo);
 
     if (existingUser) {
       return res.render(ruta +"/singUp", {
@@ -36,10 +62,10 @@ export const authSignUp = async (req, res) => {
     const esCorreoEduHn = correo.endsWith(".edu.hn");
 
     //si esCorreoEduHn termina en .edu.hn tendra rol administrador sino será usuario_corriente
-    const rol = esCorreoEduHn ? "admi" : "usuario_corriente";
+    const rol = esCorreoEduHn ? 2 : 1;
 
     //crea el usuario mediante el modelo
-    await UserModel.createUser(nombre, correo, hashPassword, rol);
+    await Usuario.createUser(correo, hashPassword, rol);
 
     //renderiza la pagina de login para que el usuario pueda ingresar con los datos con los que se registró
     return res.render(ruta + "/login", {
