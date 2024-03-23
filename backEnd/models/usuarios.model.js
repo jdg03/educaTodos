@@ -44,10 +44,10 @@ class Usuario {
       const result = await pool
         .request()
         .input("correo", correo)
-        .input("contraseña", contraseña)
+        .input("clave", contraseña)
         .input("id_rol", id_rol)
         .query(
-          "INSERT INTO usuarios (correo_electronico, clave, id_rol) VALUES (@correo, @contraseña, @id_rol)"
+          "INSERT INTO usuarios (correo_electronico, clave, id_rol) VALUES (@correo, @clave, @id_rol)"
         );
       return result;
     } catch (error) {

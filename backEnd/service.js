@@ -3,6 +3,7 @@ import path from 'path'; // Importa el módulo path
 import { fileURLToPath } from 'url'; //importar fileURLToPath
 import bodyParser from 'body-parser';
 import session from 'express-session';
+import cookieParser from 'cookie-parser';
 
 const PORT = 3000;
 
@@ -22,7 +23,19 @@ app.use(express.static(ruta+'\\..'));
 
 // Configurar body-parser para analizar datos de formularios HTML y JSON
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+
+//analiza el cuerpo de las solicitudes entrantes como JSON. 
+app.use(express.json());
+
+//analiza las cookies adjuntas en las solicitudes entrantes
+app.use(cookieParser());
+//Para eliminar la cache 
+app.use(function(req, res, next) {
+  if (!req.user)
+      res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  next();
+});
+
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);

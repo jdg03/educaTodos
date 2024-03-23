@@ -1,25 +1,26 @@
-export const verifySession = (req, res, next) => {
-    
-   // Verificar si hay un usuario almacenado en la sesión
-   if (!req.session || !req.session.user) {
-    return res.status(401).json({ error: 'Acceso denegado - Sesion no encontrada' });
-    }
+import jwt from 'jsonwebtoken';
+import { promisify } from 'util';
 
-    // Continua con la siguiente función en la ruta
-    console.log("paso por verifySession");
-    next();
-};
+// verifica si el tpken es valido
+export const verifyToken = async (req, res, next) => {
+    if (req.cookies.jwt) {
+      try {
+        
+        // Decodifica el token JWT para obtener la información del usuario
+        const tokenDecodificado = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO);
 
+        // Almacena la información del usuario decodificada en req.user para que esté disponible en las rutas posteriores
+        req.user = tokenDecodificado;
 
-export const verifyRole = (req, res, next) => {
-    
-    if (req.session && req.session.user && req.session.user.rol === 'admi') {
-        console.log("paso por el verifyRole")
-
-        // Continua con la siguiente función en la ruta
-        next();
+        console.log("Usuario autenticado:", req.user);
+        // Continúa con el siguiente controlador
+        return next();
+      } catch (error) {
+        console.log(error);
+        return res.redirect('/');
+      }
     } else {
-        return res.status(401).json({ error: 'No es administrador, acceso denegado' });
+        // Si no se encuentra un token JWT en las cookies, redirige al usuario a la página principal
+      return res.redirect('/');
     }
-};
-
+  };
