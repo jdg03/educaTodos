@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+/*header*/
+.header {
+    background-color: #003049;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 80px;
+    padding: 15px 1%;
+    font-size: 18px;
+
+}
+
+.header .logo {
+    cursor: pointer;
+    margin-top: -28px;
+}
+
+.header .logo img {
+    height: 230px;
+    width: 310px;
+    transition: all 0.3s;
+}
+
+.header .logo img:hover {
+    transform: scale(1.1);
+}
+
+
+body {
+    /*background-image: url("img/inicio.jpg");*/
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.fondo {
+    background: linear-gradient(rgba(242, 233, 215, 0.75), rgba(239, 229, 205, 0.75)), url("/img/inicio.jpg");
+    background-color: #fcd29f;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+.contenedor-formulario {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 20px;
+    background-color: rgba(246, 249, 223, 0.8);
+    box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
+    height: 600px;
+    max-width: 900px;
+    transition: all is ease;
+    margin-left: 260px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.contenedor-formulario img{
+    width: 12%;
+    position: absolute;
+    top: -35px;
+    left: -50px;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.contenedor-formulario img:hover{
+    transform: scale(1.1) rotate(10deg);
+}
+
+.title h2{
+    font-size: 28px;
+    width: 80%;
+    margin-top: 20px;
+    margin-left: 75px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid black;
+}
+
+.informacion{
+    text-align: center;
+    padding-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#relacion{
+    border-radius: 10px;
+    border-color: #FB8500;
+    padding: 5px;
+}
+
+#relacion:hover, #div-date input:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.form{
+    padding-top: 25px;
+    padding-left: 50px;
+    font-size: 15px;
+    display: flex;
+}
+
+.form-group{
+    padding-bottom: 25px;
+}
+
+.info{
+    border: none;
+    border-bottom: 1px solid #c0c5c1;
+    background-color: transparent;
+    width: 340px;
+}
+
+.form-group-left,
+.form-group-right{
+    width: 50%;
+}
+
+label:not(.no-estilo), .info{
+    display: block;
+}
+
+#div-date label{
+    margin-right: 10px;
+}
+
+#div-date input{
+    width: 150px;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: #FB8500;
+    padding: 3px;
+    margin-top: -4px;
+}
+
+#div-date, #label-radio{
+    display: flex;
+}
+
+#genero-radio{
+    display: flex;
+    align-items: center;
+}
+
+#genero-radio #label-radio input{
+    margin-left: 10px; 
+    margin-right: 5px
+}
+
+.areas{
+    padding-bottom: 5px;
+}
+
+.areas + textarea{
+    background-color: transparent;
+    border-radius: 5px;
+    border-color: #c0c5c1;
+}
+
+.areas + input{
+    border: 1px solid #c0c5c1;
+    border-radius: 5px;
+    height: 145px;
+    width: 350px;
+
+}
+
+.contenedor-botones button{
+    width: 40%;
+    height: 30px;
+    outline: none;
+    cursor: pointer;
+    margin-top: 3px;
+    background-color: #fb8500;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color .3s;
+}
+
+.contenedor-botones button:hover{
+    background-color: #fd9824;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+}
+
+.contenedor-botones button:first-of-type{
+    margin-left: -215px;
+}
+
+/*Footer*/
+.footer {
+    background-color: #003049;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+}
+
+.footerBottom {
+    background-color: #003049;
+    padding: 20px;
+    text-align: center;
+}
+
+.footerBottom p {
+    color: white;
+}
+
+.designer {
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}

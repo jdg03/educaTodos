@@ -113,15 +113,9 @@ export const authLoginJwt = async (req, res) => {
 
     // Almacenar el token en una cookie
     res.cookie('jwt', token, cookiesOptions);
-
-    // Verifica el rol del usuario y redirigir según su rol
-    if (usuario.rol === 2) {
-      // Si el usuario es administrador, redirigir a bienvenidoAdmi
-      return res.redirect('/bienvenidoAdmi');
-    } else {
-      // Si el usuario no es administrador, redirigir a bienvenido
+  
       return res.redirect('/bienvenido');
-    }
+    
   
   } catch (error) {
     console.log(error);
@@ -138,12 +132,11 @@ export const logoutJwt = (req, res) => {
 //renderiza la vista del usuario
 export const bienvenido = async (req, res) => {
   const user = req.user;
-  res.render(ruta + "/bienvenido", { user });
+  res.render(ruta + "/iniciousuario", { user });
 };
 
-//renderiza la vista del administrador
-export const bienvenidoAdmi = async (req, res) => {
+
+export const expediente = async (req, res) => {
   const user = req.user;
-  res.render(ruta + "/bienvenidoAdmi",{ user });
+  res.render(ruta + "/tutor", { user });
 };
-

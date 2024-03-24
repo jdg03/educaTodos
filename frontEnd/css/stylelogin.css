@@ -17,8 +17,8 @@ body {
 }
 
 .fondo {
-    background: linear-gradient(rgba(255, 224, 157, 0.75), rgba(255, 224, 157, 0.75)), url("/img/inicio.jpg");
-    background-color: #fcd29f;
+    background: linear-gradient(rgba(253, 238, 206, 0.75), rgba(242, 230, 205, 0.75)), url("/img/inicio.jpg");
+    background-color: #f1e5d6;
     background-size: cover;
     align-items: center;
     justify-content: center;
@@ -38,7 +38,7 @@ html {
     transition: all is ease;
     margin-left: 260px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 10%;
 }
 
 div.informacion {

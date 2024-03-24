@@ -1,5 +1,5 @@
 import Router from "express";
-import {findUserById,getAllUsers,login, singUp, authSignUp, authLoginJwt, bienvenido, bienvenidoAdmi, logoutJwt}  from "../controllers/usuario.controller.js"
+import {findUserById,getAllUsers,login, singUp, authSignUp, authLoginJwt, bienvenido, logoutJwt, expediente}  from "../controllers/usuario.controller.js"
 import {verifyToken} from "../middlewares/verify.js";
 
 const router = Router();
@@ -20,8 +20,9 @@ router.post('/auth/singUp', authSignUp);
 router.post('/auth/login', authLoginJwt);
 
 //ruta que lleva a las paginas de bienvenida con los datos del usuario que inicio sesión dependiendo su rol
-router.get('/bienvenido', verifyToken, bienvenido);
-router.get('/bienvenidoAdmi',verifyToken, bienvenidoAdmi);
+router.get('/bienvenido',bienvenido);
+router.get('/expediente', expediente)
+
 
 //ruta que destruye el token y cierra la sesion
 router.get('/logout', logoutJwt);
