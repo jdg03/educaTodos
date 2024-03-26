@@ -29,8 +29,8 @@ class Genero {
       const result = await pool
         .request()
         .input("nombre", genero)
-        .query("INSERT INTO generos (genero) VALUES (@nombre)");
-      return result;
+        .query("INSERT INTO generos (genero) OUTPUT INSERTED.* VALUES (@nombre)");
+      return result.recordset[0];
     } catch (error) {
       console.log(error);
       throw error;

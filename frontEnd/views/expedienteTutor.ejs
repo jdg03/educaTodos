@@ -5,18 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse</title>
-    <link rel="stylesheet" href="../css/styletutor.css">
+    <link rel="stylesheet" href="../css/expediente.css">
 </head>
 
 <body class="fondo">   
     <header class="header">
-        <div class="logo">
-            <img src="../img/EDUCATODOS.png" alt="">
-        </div>
+        <a href="../educaTodos">
+            <div class="logo">
+                <img src="../img/EDUCATODOS.png" alt="">
+            </div>
+        </a>
     </header>
 
     <div class="contenedor-formulario">
-        <img src="../img/pngwing.com.png" alt="">
+        
+        <img src="../img/pngwing.com.png" alt="" >
         <div class="cont-header">
             <div class="title">
                 <h2>Creación del Expediente Estudiantil</h2>
@@ -25,7 +28,7 @@
         </div>
 
         <div class="form-information">
-            <form class="form" action="">
+            <form class="form" action="/expedienteEstudiante" method="get">
                 <div class="form-group-left">
                     <div class="form-group">
                         <label class="no-estilo" for="relacion">Relación con el estudiante</label>
@@ -40,27 +43,27 @@
     
                     <div class="form-group">
                         <label for="id">Número de Identidad</label>
-                        <input class="info" id="id" name="idNumber" type="text">
+                        <input class="info" id="id" name="idNumber" type="text" required>
                     </div>
     
                     <div class="form-group">
                         <label for="nombre">Nombre completo</label>
-                        <input class="info" id="nombre" name="name" type="text">
+                        <input class="info" id="nombre" name="name" type="text" required>
                     </div>
     
                     <div class="form-group">
                         <label for="tel">Número de teléfono</label>
-                        <input class="info" id="tel" name="telephone" type="text">
+                        <input class="info" id="tel" name="telephone" type="text" required>
                     </div>
     
                     <div class="form-group">
                         <label for="ocup">Ocupación</label>
-                        <input class="info" id="ocup" name="ocupation" type="text">
+                        <input class="info" id="ocup" name="ocupation" type="text" required>
                     </div>
     
                     <div class="form-group">
                         <label for="correo">Correo electrónico</label>
-                        <input class="info" id="correo" name="email" type="text">
+                        <input class="info" id="correo" name="email" type="text" required>
                     </div>
                 </div>
 
@@ -68,12 +71,12 @@
                     
                     <div class="form-group" id="div-date">
                         <label class="no-estilo" for="fecha">Fecha de nacimiento</label>
-                        <input type="date" if="fecha" name="date">
+                        <input type="date" if="fecha" name="date" required>
                     </div>
 
                     <div class="form-group" id="genero-radio">
                         <label class="no-estilo">Género</label>
-                        <label class="no-estilo" id="label-radio">
+                        <label class="no-estilo" id="label-radio" required>
                             <input type="radio" name="opcion" value="1">
                             <span>Masculino</span>
                             <input type="radio" name="opcion" value="2">
@@ -82,17 +85,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="areas" for="residencia">Dirección de residencia</label>
-                        <textarea name="residence" cols="40" rows="4"></textarea>
+                        <label class="areas" for="residencia" >Dirección de residencia</label>
+                        <textarea name="residence" cols="40" rows="4" required></textarea>
                     </div>
 
                     <div class="form-group">
                         <label class="areas" for="archivo">Identidad (Formato imagen o pdf)</label>
-                        <input type="file" name="fileId">
+                        <input type="file" name="fileId" required>
                     </div>
 
                     <div class="contenedor-botones">
-                        <button type="button">←  Anterior</button>
+                        <button type="button" onclick="window.history.back()">←  Anterior</button>
                         <button name="enviar" type="submit">Enviar información ✓</button>
                     </div>
                 </div>
