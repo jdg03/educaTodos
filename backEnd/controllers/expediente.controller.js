@@ -12,8 +12,6 @@ const { JWT_SECRETO, JWT_EXPIRES_IN } = process.env;
 export const registro = async (req, res) => {
   const datos = req.body;
 
-
-
   try {
     const existingUser = await Usuario.findByEmail(datos.correo_electronico);
 
@@ -55,11 +53,11 @@ export const registro = async (req, res) => {
 
     };
 
-
     const usuarioTutor = await Usuario.createUser(nuevoTutor);
     const usuarioEstudiante = await Usuario.createUser(nuevoEstudiante);
 
-   
+    //logica para guardar los archivos y que pertenezcan a usuarioTutor.id y usuarioEstudiante.id
+
     //logica para crear el expediente con los datos de usuarioTutor y usuarioEstudiante
 
     //lleva a la pagina de inicio
