@@ -13,9 +13,10 @@ router.get('/login',UsuarioController.login)
 //ruta que lleva a pagina de registro
 router.get('/singUp',UsuarioController.singUp)
 
-
-
+//ruta que lleva a la pagina de bienvenido
 router.get('/bienvenido',UsuarioController.bienvenido);
+
+////ruta que lleva a la pagina de crear expediente
 router.get('/expedienteTutor', UsuarioController.expedienteTutor)
 router.get('/expedienteEstudiante', UsuarioController.expedienteEstudiante)
 
