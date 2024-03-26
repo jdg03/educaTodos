@@ -1,24 +1,20 @@
 import Router from "express";
-import { UsuarioController } from "../controllers/usuario.controller.js";
+import { vistasController } from "../controllers/vistas.controller.js";
 
 const router = Router();
 
-//ruta para obtener todos los usuarios
-router.get('/usuarios',UsuarioController.getAllUsers)
-//ruta para obtener un usuario
-router.get('/usuario/id',UsuarioController.findUserById)
 
 //ruta que lleva a la pagina de login
-router.get('/login',UsuarioController.login)
+router.get('/login',vistasController.login)
 //ruta que lleva a pagina de registro
-router.get('/singUp',UsuarioController.singUp)
+router.get('/singUp',vistasController.singUp)
 
 //ruta que lleva a la pagina de bienvenido
-router.get('/bienvenido',UsuarioController.bienvenido);
+router.get('/bienvenido',vistasController.bienvenido);
 
 ////ruta que lleva a la pagina de crear expediente
-router.get('/expedienteTutor', UsuarioController.expedienteTutor)
-router.get('/expedienteEstudiante', UsuarioController.expedienteEstudiante)
+router.get('/expedienteTutor', vistasController.expedienteTutor)
+router.get('/expedienteEstudiante', vistasController.expedienteEstudiante)
 
 
 

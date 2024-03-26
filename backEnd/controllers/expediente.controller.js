@@ -122,7 +122,7 @@ export const logoutJwt = (req, res) => {
   return res.redirect("/");
 };
 
-export const registroController = {
+export const expedienteContreleller = {
   registro,
   authLoginJwt,
   logoutJwt,
