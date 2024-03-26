@@ -29,8 +29,8 @@ class Rol {
       const result = await pool
         .request()
         .input("rol", rol)
-        .query("INSERT INTO roles (rol) VALUES (@rol)");
-      return result;
+        .query("INSERT INTO roles (rol) OUTPUT INSERTED.* VALUES (@rol)");
+      return result.recordset[0];
     } catch (error) {
       console.log(error);
       throw error;

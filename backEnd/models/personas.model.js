@@ -35,11 +35,10 @@ class Persona {
         .input("segundo_apellido", segundo_apellido)
         .input("dni", dni)
         .input("fecha_nacimiento", fecha_nacimiento)
-        .input("genero_id", genero_id)
         .query(
-          "INSERT INTO personas (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, dni, fecha_nacimiento, genero_id) VALUES (@primer_nombre, @segundo_nombre, @primer_apellido, @segundo_apellido, @dni, @fecha_nacimiento, @genero_id)"
+          "INSERT INTO personas (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, dni, fecha_nacimiento) OUTPUT INSERTED.* VALUES (@primer_nombre, @segundo_nombre, @primer_apellido, @segundo_apellido, @dni, @fecha_nacimiento)"
         );
-      return result;
+      return result.recordset[0];
     } catch (error) {
       console.log(error);
       throw error;

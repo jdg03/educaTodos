@@ -53,16 +53,18 @@ app.use(session({
   saveUninitialized: false
 }));
 
-// _____________Rutas________________
+// ____________________________Rutas______________________________
 import routerLogin from "./routes/usuario.route.js";
 import routerGeneros from "./routes/generos.route.js"
 import routerRol from './routes/roles.route.js';
 import routerPersona from './routes/personas.route.js'
+import routerRegistro from './routes/registro.route.js'
 import routerInstitucion from "./routes/institucion.route.js"
 
 app.use(routerLogin);
 app.use(routerGeneros);
 app.use(routerRol);
 app.use(routerPersona);
+app.use(routerRegistro);
 app.use(routerInstitucion)
 

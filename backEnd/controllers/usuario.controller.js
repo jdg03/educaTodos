@@ -1,12 +1,5 @@
 import { ruta } from "../service.js";
 import Usuario from "../models/usuarios.model.js"
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-const {JWT_SECRETO, JWT_EXPIRES_IN} = process.env;
 
 
 //lleva a la pgina de login
@@ -45,90 +38,6 @@ export const getAllUsers = async (req, res) => {
   }
 };
 
-
-//metodo para registarse
-export const authSignUp = async (req, res) => {
-  const { nombre, correo, contraseña, contraseñaConfirm } = req.body;
-
-  try {
-    const existingUser = await Usuario.findByEmail(correo);
-
-     // verifica si existe alguien con ese correo
-    if (existingUser) {
-     
-      return res.redirect("/singUp/page");
-      
-    // verifica si las contraseñas coinciden
-    }else if (contraseña !== contraseñaConfirm) {
-
-      return res.redirect("/singUp/page");
-    }
-
-    const hashPassword = await bcrypt.hash(contraseña, 8);
-    const esCorreoEduHn = correo.endsWith(".edu.hn");
-    const rol = esCorreoEduHn ? 2 : 1;
-
-    await Usuario.createUser(nombre, correo, hashPassword, rol);
-
-    // usuario creado con exito regrese a la pagina de login
-    return res.redirect("/login/page");
-  } catch (error) {
-    console.log(error);
-    return res.status(500).send("Error en el servidor");
-  }
-};
-
-//método para iniciar sesion
-export const authLoginJwt = async (req, res) => {
- 
-  const { correo, contraseña } = req.body;
-
-  try {
-    const usuario = await Usuario.findByEmail(correo);
-
-    // verifica si existe un usuario registrado con el correo que ingreso
-    if (!usuario) {
-  
-      return res.redirect("/login/page");
-    }
-
-    const contraseñaValida = await Usuario.comparePassword(contraseña, usuario.contraseña);
-
-    // verifica si las contraseñas coinciden
-    if (!contraseñaValida) {
-     
-      return res.redirect("/login/page");
-    }
-
-    const token = jwt.sign(
-      { id: usuario.id_usuario, correo: usuario.correo_electronico, rol: usuario.id_rol },
-      JWT_SECRETO,
-      { expiresIn: JWT_EXPIRES_IN }
-    );
-
-    const cookiesOptions = {
-      expires: new Date(Date.now() + (3 * 60 * 60 * 1000)),//tiempo que dura la cookie
-      httpOnly: true
-    };
-
-    // Almacenar el token en una cookie
-    res.cookie('jwt', token, cookiesOptions);
-  
-      return res.redirect('/bienvenido');
-    
-  
-  } catch (error) {
-    console.log(error);
-    return res.status(500).send("Error en el servidor");
-  }
-};
-
-// destruye el token y cierra la sesion
-export const logoutJwt = (req, res) => {
-  res.clearCookie('jwt');
-  return res.redirect('/');
-};
-
 //renderiza la vista del usuario
 export const bienvenido = async (req, res) => {
   const user = req.user;
@@ -136,7 +45,25 @@ export const bienvenido = async (req, res) => {
 };
 
 
-export const expediente = async (req, res) => {
+export const expedienteTutor = async (req, res) => {
   const user = req.user;
-  res.render(ruta + "/tutor", { user });
+  res.render(ruta + "/expedienteTutor", { user });
+};
+
+
+export const expedienteEstudiante = async (req, res) => {
+  const user = req.user;
+  res.render(ruta + "/expedienteEstudiante", { user });
+};
+
+
+
+export const UsuarioController = {
+  findUserById,
+  getAllUsers,
+  login,
+  singUp,
+  bienvenido,
+  expedienteTutor,
+  expedienteEstudiante
 };
