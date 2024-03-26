@@ -9,12 +9,12 @@ router.get('/usuarios',UsuarioController.getAllUsers)
 router.get('/usuario/id',UsuarioController.findUserById)
 
 //ruta que lleva a la pagina de login
-router.get('/login/page',UsuarioController.login)
+router.get('/login',UsuarioController.login)
 //ruta que lleva a pagina de registro
-router.get('/singUp/page',UsuarioController.singUp)
+router.get('/singUp',UsuarioController.singUp)
 
 
-//ruta que lleva a las paginas de bienvenida con los datos del usuario que inicio sesión dependiendo su rol
+
 router.get('/bienvenido',UsuarioController.bienvenido);
 router.get('/expedienteTutor', UsuarioController.expedienteTutor)
 router.get('/expedienteEstudiante', UsuarioController.expedienteEstudiante)

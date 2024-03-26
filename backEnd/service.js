@@ -58,11 +58,11 @@ import routerLogin from "./routes/usuario.route.js";
 import routerGeneros from "./routes/generos.route.js"
 import routerRol from './routes/roles.route.js';
 import routerPersona from './routes/personas.route.js'
-import routerRegistro from './routes/registro.route.js'
+import expedienteRegistro from './routes/expediente.route.js'
 
 app.use(routerLogin);
 app.use(routerGeneros);
 app.use(routerRol);
 app.use(routerPersona);
-app.use(routerRegistro);
+app.use(expedienteRegistro);
 
