@@ -19,7 +19,7 @@ app.set('view engine', 'ejs');
 app.set('views', ruta);
 
 //Define los archivos estaticos
-app.use(express.static(ruta+'\\..'));
+app.use(express.static(ruta + '\\..'));
 
 // Configurar body-parser para analizar datos de formularios HTML y JSON
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,9 +30,9 @@ app.use(express.json());
 //analiza las cookies adjuntas en las solicitudes entrantes
 app.use(cookieParser());
 //Para eliminar la cache 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   if (!req.user)
-      res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
   next();
 });
 
@@ -58,9 +58,11 @@ import routerLogin from "./routes/usuario.route.js";
 import routerGeneros from "./routes/generos.route.js"
 import routerRol from './routes/roles.route.js';
 import routerPersona from './routes/personas.route.js'
+import routerInstitucion from "./routes/institucion.route.js"
 
 app.use(routerLogin);
 app.use(routerGeneros);
 app.use(routerRol);
 app.use(routerPersona);
+app.use(routerInstitucion)
 
