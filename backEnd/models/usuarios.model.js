@@ -19,14 +19,15 @@ class Usuario {
         try {
             const result = await pool
                 .request()
-                .input("nombre_usuario", nombreUsuario)
-                .query("SELECT * FROM usuarios WHERE nombre_usuario = @nombre_usuario");
+                .input("nombreUsuario", nombreUsuario) // Cambiar a nombreUsuario
+                .query("SELECT * FROM usuarios WHERE usuario = @nombreUsuario"); // Cambiar a @nombreUsuario
             return result.recordset[0];
         } catch (error) {
             console.log(error);
             throw error;
         }
     }
+    
 
     async findByDni(dni) {
       try {
@@ -51,7 +52,7 @@ class Usuario {
         }
     }
 
-    async createUser(estudiante, clave, usuario) {
+    async createUser(estudiante) {
         try {
             const result = await pool
                 .request()
@@ -62,11 +63,11 @@ class Usuario {
                 .input("dni", estudiante.dni)
                 .input("fecha_nacimiento", estudiante.fecha_nacimiento)
                 .input("genero_id", estudiante.genero_id)
-                .input("usuaurio",usuario )
-                .input("clave", clave)
+                .input("usuario",estudiante.usuario)
+                .input("clave", estudiante.clave)
                 .input("id_rol", 1)
                 .query(
-                    "INSERT INTO usuarios (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, dni, fecha_nacimiento, genero_id, usuaurio, clave, id_rol) OUTPUT INSERTED.* VALUES (@primer_nombre, @segundo_nombre, @primer_apellido, @segundo_apellido, @dni, @fecha_nacimiento, @genero_id, @usuaurio, @clave, @id_rol)"
+                    "INSERT INTO usuarios (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, dni, fecha_nacimiento, genero_id, usuario, clave, id_rol) OUTPUT INSERTED.* VALUES (@primer_nombre, @segundo_nombre, @primer_apellido, @segundo_apellido, @dni, @fecha_nacimiento, @genero_id, @usuario, @clave, @id_rol)"
                 );
             return result.recordset[0];
         } catch (error) {

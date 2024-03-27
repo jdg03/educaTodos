@@ -17,10 +17,10 @@ export const verifyToken = async (req, res, next) => {
         return next();
       } catch (error) {
         console.log(error);
-        return res.redirect('/');
+        return res.redirect('/educaTodos');
       }
     } else {
         // Si no se encuentra un token JWT en las cookies, redirige al usuario a la página principal
-      return res.redirect('/');
+      return res.redirect('/educaTodos');
     }
   };

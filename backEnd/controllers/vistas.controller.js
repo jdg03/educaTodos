@@ -38,6 +38,7 @@ export const expediente = async(req, res) =>{
 }
 
 
+
 export const vistasController = {
   login,
   singUp,

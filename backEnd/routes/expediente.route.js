@@ -8,7 +8,7 @@ const router = Router();
 //ruta que que registra un usuario
 router.post('/registro',expedienteController.registro);
 //ruta que verifica si se inicio sesion correctamente
-router.post('/login',expedienteController.authLoginJwt);
+router.post('/loginAuth',expedienteController.authLoginJwt);
 
 //ruta que destruye el token y cierra la sesion
 router.get('/logout', expedienteController.logoutJwt);

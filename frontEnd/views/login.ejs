@@ -28,7 +28,6 @@
         </nav>
         <span>
             <a class="btn" nombre="login" href="/login/page"><button>Iniciar Sesión</button></a>
-            <a class="btn" nombre="registro" href="/singUp/page"><button>Registrarse</button></a>
         </span>
 
         <button class="navbar_toogle-btn">
@@ -63,11 +62,11 @@
             <div class="form-information">
                 <div class="form-information-childs">
                     <h2>Iniciar Sesión</h2>
-            <form class="form">
+            <form class="form" action="/loginAuth" method="POST">
                 <div class="form-group">
-                    <span>Correo Electrónico</span>
+                    <span>Usuario</span>
                     <i class='bx bx-envelope'></i>
-                    <input name="correo" placeholder="Ingrese su correo" type="text">
+                    <input name="nombreUsuario" placeholder="Ingrese su correo" type="text">
                 </div>
 
                 <div class="form-group">

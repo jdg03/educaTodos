@@ -21,7 +21,7 @@ export const generateRandom = (length) => {
   
       // Mensaje con las credenciales
       const subject = 'Credenciales de inicio de sesión en educaTodos';
-      const htmlContent = `<p>Hola,</p><p>Las credenciales de inicio de sesión del estudiante ${primer_nombre} ${primer_apellido}  en educaTodos son:</p><p>Usuai: ${usuario}</p><p>Contraseña: ${clave}</p>`;
+      const htmlContent = `<p>Hola,</p><p>Las credenciales de inicio de sesión del estudiante: ${primer_nombre} ${primer_apellido}  en educaTodos son:</p><p>Usuario: ${usuario}</p><p>Contraseña: ${clave}</p>`;
   
       // Envía el correo electrónico
       await resend.emails.send({
