@@ -15,12 +15,12 @@ class Usuario {
         }
     }
 
-    async findByEmail(email) {
+    async findByUserName(nombreUsuario) {
         try {
             const result = await pool
                 .request()
-                .input("correo", email)
-                .query("SELECT * FROM usuarios WHERE correo_electronico = @correo");
+                .input("nombre_usuario", nombreUsuario)
+                .query("SELECT * FROM usuarios WHERE nombre_usuario = @nombre_usuario");
             return result.recordset[0];
         } catch (error) {
             console.log(error);
@@ -51,17 +51,17 @@ class Usuario {
         }
     }
 
-    async createUser(usuario, usuario, clave) {
+    async createUser(estudiante, clave, usuario) {
         try {
             const result = await pool
                 .request()
-                .input("primer_nombre", usuario.primer_nombre)
-                .input("segundo_nombre", usuario.segundo_nombre)
-                .input("primer_apellido", usuario.primer_apellido)
-                .input("segundo_apellido", usuario.segundo_apellido)
-                .input("dni", usuario.dni)
-                .input("fecha_nacimiento", usuario.fecha_nacimiento)
-                .input("genero_id", usuario.genero_id)
+                .input("primer_nombre", estudiante.primer_nombre)
+                .input("segundo_nombre", estudiante.segundo_nombre)
+                .input("primer_apellido", estudiante.primer_apellido)
+                .input("segundo_apellido", estudiante.segundo_apellido)
+                .input("dni", estudiante.dni)
+                .input("fecha_nacimiento", estudiante.fecha_nacimiento)
+                .input("genero_id", estudiante.genero_id)
                 .input("usuaurio",usuario )
                 .input("clave", clave)
                 .input("id_rol", 1)

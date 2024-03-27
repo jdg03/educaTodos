@@ -56,16 +56,18 @@ app.use(session({
 // ____________________________Rutas______________________________
 import routerVistas from "./routes/vistas.route.js";
 import routerGeneros from "./routes/generos.route.js"
-import routerRol from './routes/roles.route.js';
-import routerUsuarios from './routes/usuarios.route.js'
-import expedienteRegistro from './routes/expediente.route.js'
-import routerInstitucion from "./routes/institucion.route.js"
+import routerRol from "./routes/roles.route.js";
+import routerUsuarios from "./routes/usuarios.route.js"
+import routeCrearExpediente from "./routes/expediente.route.js"
+import routeExpediente from "./routes/expedienteEstudiantil.route.js";
+import routerInstitucion from "./routes/institucion.route.js";
 
 
 app.use(routerVistas);
 app.use(routerGeneros);
 app.use(routerRol);
 app.use(routerUsuarios);
-app.use(expedienteRegistro);
+app.use(routeCrearExpediente);
+app.use(routeExpediente);
 app.use(routerInstitucion)
 

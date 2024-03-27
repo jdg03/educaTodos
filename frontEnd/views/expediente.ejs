@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-information">
-            <form id="formulary" class="form" action="">
+            <form id="formulary" class="form" action="/registro" method="POST">
                 <div class="form-student">
                     <div class="form-group-left">
                         <div class="form-group">
@@ -47,38 +47,53 @@
                         </div>
         
                         <div class="form-group">
-                            <label for="nombre">Nombre completo</label>
-                            <input class="info" id="nombre" name="nameTutor" type="text">
+                            <label for="nombre">Primer nombre</label>
+                            <input class="info" id="primer_nombre_tutor" name="nameTutor" type="text">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombre">Segundo nombre</label>
+                            <input class="info" id="segundo_nombre_tutor" name="nameTutor" type="text">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombre">Primer apellido</label>
+                            <input class="info" id="primer_apellido_tutor" name="nameTutor" type="text">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombre">Segundo apellido</label>
+                            <input class="info" id="nombre" name="segundo_apellido_tutor" type="text">
                         </div>
         
                         <div class="form-group">
                             <label for="tel">Número de teléfono</label>
-                            <input class="info" id="tel" name="telephone" type="text">
+                            <input class="info" id="tel" name="telefono" type="text">
                         </div>
         
                         <div class="form-group">
                             <label for="ocup">Ocupación</label>
-                            <input class="info" id="ocup" name="ocupation" type="text">
+                            <input class="info" id="ocup" name="ocupacion" type="text">
                         </div>
         
                         <div class="form-group">
                             <label for="correo">Correo electrónico</label>
-                            <input class="info" id="correo" name="email" type="text">
+                            <input class="info" id="correo" name="correo_electronico" type="text">
                         </div>
                     </div>
     
                     <div class="form-group-right">
                         <div class="form-group" id="div-date">
                             <label class="no-estilo" for="fecha">Fecha de nacimiento</label>
-                            <input type="date" if="fecha" name="dateTutor">
+                            <input type="date" if="fecha" name="fecha_nacimiento_tutor">
                         </div>
     
                         <div class="form-group-radio">
                             <label class="no-estilo">Género</label>
                             <label class="no-estilo-radio">
-                                <input type="radio" name="opcionTutor" value="femenino">
+                                <input type="radio" name="genero_id_tutor" value="1">
                                 <span>Femenino</span>
-                                <input type="radio" name="opcionTutor" value="masculino">
+                                <input type="radio" name="genero_id_tutor" value="2">
                                 <span>Masculino</span>
                             </label>
                         </div>
@@ -107,12 +122,42 @@
                     <div class="form-group-left">
                         <div class="form-group">
                             <label for="id">Número de Identidad</label>
-                            <input class="info" id="id" name="idStudent" type="text">
+                            <input class="info" id="id" name="id_estudiante" type="text">
                         </div>
         
                         <div class="form-group">
-                            <label for="nombre">Nombre completo</label>
-                            <input class="info" id="nombre" name="nameStudent" type="text">
+                            <label for="nombre">Primer nombre</label>
+                            <input class="info" id="primer_nombre_estudiante" name="nameTutor" type="text">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombre">Segundo nombre</label>
+                            <input class="info" id="segundo_nombre_estudiante" name="nameTutor" type="text">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombre">Primer apellido</label>
+                            <input class="info" id="primer_apellido_estudiante" name="nameTutor" type="text">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombre">Segundo apellido</label>
+                            <input class="info" id="nombre" name="segundo_apellido_estudiante" type="text">
+                        </div>
+
+                      
+
+                        <div class="form-group">
+                            <label class="areas-one">Fotografía tipo carnet</label>
+                            <input type="file" name="fotografia_estudiante" id="uploadBtn">
+                            <label for="uploadBtn">⭱</label>
+                        </div>
+                     </div>
+
+                    <div class="form-group-right">
+                        <div class="form-group" id="div-date">
+                            <label class="no-estilo" for="fecha">Fecha de nacimiento</label>
+                            <input type="date" if="fecha" name="fecha_nacimiento_estudiante">
                         </div>
 
                         <div class="form-group">
@@ -123,25 +168,12 @@
                             </select>
                         </div>
 
-                        <div class="form-group">
-                            <label class="areas-one">Fotografía tipo carnet</label>
-                            <input type="file" name="pictureStudent" id="uploadBtn">
-                            <label for="uploadBtn">⭱</label>
-                        </div>
-                     </div>
-
-                    <div class="form-group-right">
-                        <div class="form-group" id="div-date">
-                            <label class="no-estilo" for="fecha">Fecha de nacimiento</label>
-                            <input type="date" if="fecha" name="dateStudent">
-                        </div>
-
                         <div class="form-group-radio">
                             <label class="no-estilo">Género</label>
                             <label class="no-estilo-radio">
-                                <input type="radio" name="opcionStudent" value="femenino">
+                                <input type="radio" name="genero_id_estudiante" value="1">
                                 <span>Femenino</span>
-                                <input type="radio" name="opcionStudent" value="masculino">
+                                <input type="radio" name="genero_id_estudiante" value="2">
                                 <span>Masculino</span>
                             </label>
                         </div>

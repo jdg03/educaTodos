@@ -1,17 +1,17 @@
 import Router from "express";
-import { expedienteContreleller } from "../controllers/expediente.controller.js";
+import { expedienteController } from "../controllers/crearExpediente.controller.js";
 import {verifyToken} from "../middlewares/verify.js";
 
 const router = Router();
 
 
 //ruta que que registra un usuario
-router.post('/registro',expedienteContreleller.registro);
+router.post('/registro',expedienteController.registro);
 //ruta que verifica si se inicio sesion correctamente
-router.post('/login',expedienteContreleller.authLoginJwt);
+router.post('/login',expedienteController.authLoginJwt);
 
 //ruta que destruye el token y cierra la sesion
-router.get('/logout', expedienteContreleller.logoutJwt);
+router.get('/logout', expedienteController.logoutJwt);
 
 
 export default router;
