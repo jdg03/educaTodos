@@ -1,5 +1,5 @@
 import Router from "express";
-import { vistasAdmiController } from "../controllers/vistasAdmi.controller";
+import { vistasAdmiController } from "../controllers/vistasAdmi.controller.js";
 import { verifyToken, verifyAdmin } from "../middlewares/verify.js";
 
 const router = Router();
