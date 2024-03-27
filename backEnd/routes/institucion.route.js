@@ -1,8 +1,10 @@
 import express from "express";
-import { getAllInstitutos } from "../controllers/instituciones.controller.js"
+import { findById, getAll } from "../controllers/instituciones.controller.js"
 
 const router = express.Router()
 
-router.get('/institutos', getAllInstitutos);
+router.get('/institucion', getAll);
+
+router.get('/institucion/:id', findById)
 
 export default router;
