@@ -55,6 +55,7 @@ app.use(session({
 
 // ____________________________Rutas______________________________
 import routerVistas from "./routes/vistas.route.js";
+import routerVistasAdmi from "./routes/vistasAdmi.route.js"
 import routerGeneros from "./routes/generos.route.js"
 import routerRol from "./routes/roles.route.js";
 import routerUsuarios from "./routes/usuarios.route.js"
@@ -64,6 +65,7 @@ import routerInstitucion from "./routes/institucion.route.js";
 
 
 app.use(routerVistas);
+app.use(routerVistasAdmi);
 app.use(routerGeneros);
 app.use(routerRol);
 app.use(routerUsuarios);

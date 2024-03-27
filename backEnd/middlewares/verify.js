@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { promisify } from 'util';
 
-// verifica si el tpken es valido
+// verifica si el token es valido
 export const verifyToken = async (req, res, next) => {
     if (req.cookies.jwt) {
       try {
@@ -24,3 +24,23 @@ export const verifyToken = async (req, res, next) => {
       return res.redirect('/educaTodos');
     }
   };
+
+  //verifica si es admi
+  export const verifyAdmin = async (req, res, next) => {
+    try {
+
+      console.log(req.user.rol);
+      // Verifica si el usuario tiene un rol válido
+      if (req.user.rol === 2) {
+        // Si el usuario tiene rol de administrador, continúa con el siguiente controlador
+        return next();
+      } else {
+        // Si el usuario no es un administrador, redirige a una página de acceso denegado o realiza otra acción adecuada
+        return res.redirect("/bienvenido")
+      }
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send('Error interno del servidor');
+    }
+  };
+  

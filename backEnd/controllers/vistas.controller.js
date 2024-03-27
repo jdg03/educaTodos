@@ -13,13 +13,6 @@ export const singUp = async (req, res) => {
 };
 
 
-//renderiza la vista del usuario
-export const bienvenido = async (req, res) => {
-  const user = req.user;
-  res.render(ruta + "/iniciousuario", { user });
-};
-
-
 export const expedienteTutor = async (req, res) => {
  
   res.render(ruta + "/expedienteTutor");
@@ -37,6 +30,18 @@ export const expediente = async(req, res) =>{
   res.render(ruta + "/expediente");
 }
 
+//renderiza la vista del usuario
+export const bienvenido = async (req, res) => {
+  const user = req.user;
+  res.render(ruta + "/iniciousuario", { user });
+};
+
+
+//renderiza la vista del administrador
+export const bienvenidoAdmi = async (req, res) => {
+  const user = req.user;
+  res.render(ruta + "/admi/inicioAdministrador", { user });
+};
 
 
 export const vistasController = {
@@ -45,5 +50,6 @@ export const vistasController = {
   bienvenido,
   expedienteTutor,
   expedienteEstudiante,
-  expediente
+  expediente,
+  bienvenidoAdmi
 };
