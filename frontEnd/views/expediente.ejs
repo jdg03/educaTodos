@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="../css/styleexpediente.css">
+    <link rel="stylesheet" href="../css/styleinformation.css">
+</head>
+
+<body class="fondo">   
+    <header class="header">
+        <div class="logo">
+            <a href="/educaTodos"><img src="../img/EDUCATODOS.png" alt=""> </a>
+        </div>
+    </header>
+
+    <img src="../img/pngwing.com.png" alt="">
+
+    <div class="contenedor-formulario">
+        <div class="cont-header">
+            <div class="title">
+                <h2>Creación del Expediente Estudiantil</h2>
+            </div>
+            <div class="informacion">Información del tutor</div>
+        </div>
+
+        <div class="form-information">
+            <form id="formulary" class="form" action="">
+                <div class="form-student">
+                    <div class="form-group-left">
+                        <div class="form-group">
+                            <label class="no-estilo" for="relacion">Relación con el estudiante</label>
+                            <select name="relacionEstudiante" id="relacion">
+                                <option value="padreBio">Padre biológico</option>
+                                <option value="madreBio">Madre biológica</option>
+                                <option value="tutorLegal">Tutor legal</option>                        
+                                <option value="familiar">Familiar cercano</option>
+                                <option value="mentor">Mentor</option>
+                            </select>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="id">Número de Identidad</label>
+                            <input class="info" id="id" name="idTutor" type="text">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input class="info" id="nombre" name="nameTutor" type="text">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="tel">Número de teléfono</label>
+                            <input class="info" id="tel" name="telephone" type="text">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="ocup">Ocupación</label>
+                            <input class="info" id="ocup" name="ocupation" type="text">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="correo">Correo electrónico</label>
+                            <input class="info" id="correo" name="email" type="text">
+                        </div>
+                    </div>
+    
+                    <div class="form-group-right">
+                        <div class="form-group" id="div-date">
+                            <label class="no-estilo" for="fecha">Fecha de nacimiento</label>
+                            <input type="date" if="fecha" name="dateTutor">
+                        </div>
+    
+                        <div class="form-group-radio">
+                            <label class="no-estilo">Género</label>
+                            <label class="no-estilo-radio">
+                                <input type="radio" name="opcionTutor" value="femenino">
+                                <span>Femenino</span>
+                                <input type="radio" name="opcionTutor" value="masculino">
+                                <span>Masculino</span>
+                            </label>
+                        </div>
+    
+                        <div class="form-group">
+                            <label class="areas">Dirección de residencia</label>
+                            <textarea name="residenceTutor" cols="40" rows="4"></textarea>
+                        </div>
+    
+                        <div class="form-group">
+                            <label class="areas">Identidad (Formato imagen o pdf)</label>
+                            <input type="file" name="fileId" id="uploadBtn">
+                            <label for="uploadBtn">⭱</label>
+                        </div>
+    
+                        <!--<div class="contenedor-botones">
+                            <button type="button" onclick="estudianteView()">←  Anterior</button>
+                            <button name="enviar" type="submit">Enviar información ✓</button>
+                        </div>-->
+                    </div>
+                </div>
+
+                <div class="informacion">Información del Estudiante</div>
+
+                <div class="form-tutor">
+                    <div class="form-group-left">
+                        <div class="form-group">
+                            <label for="id">Número de Identidad</label>
+                            <input class="info" id="id" name="idStudent" type="text">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input class="info" id="nombre" name="nameStudent" type="text">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="no-estilo" for="nacionalidad">Nacionalidad</label>
+                            <select name="nacionality" id="nacionalidad">
+                                <option value="honduran">Hondureña</option>
+                                <option value="other">Otra</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="areas-one">Fotografía tipo carnet</label>
+                            <input type="file" name="pictureStudent" id="uploadBtn">
+                            <label for="uploadBtn">⭱</label>
+                        </div>
+                     </div>
+
+                    <div class="form-group-right">
+                        <div class="form-group" id="div-date">
+                            <label class="no-estilo" for="fecha">Fecha de nacimiento</label>
+                            <input type="date" if="fecha" name="dateStudent">
+                        </div>
+
+                        <div class="form-group-radio">
+                            <label class="no-estilo">Género</label>
+                            <label class="no-estilo-radio">
+                                <input type="radio" name="opcionStudent" value="femenino">
+                                <span>Femenino</span>
+                                <input type="radio" name="opcionStudent" value="masculino">
+                                <span>Masculino</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="areas">Dirección de residencia</label>
+                            <textarea name="residenceStudent" cols="40" rows="4"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="areas">Partida de nacimiento</label>
+                            <input type="file" name="certificated" id="uploadBtn-one">
+                            <label for="uploadBtn-one">⭱</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <div class="contenedor-botones">
+            <button name="enviar" form="formulary" type="submit">Enviar información ✓</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footerBottom">
+            <p>EDUCATODOS &copy;2024 Diseñado por <span class="designer">Grupo 5</span></p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -21,16 +21,21 @@ export const bienvenido = async (req, res) => {
 
 
 export const expedienteTutor = async (req, res) => {
-  const user = req.user;
-  res.render(ruta + "/expedienteTutor", { user });
+ 
+  res.render(ruta + "/expedienteTutor");
 };
 
 
 export const expedienteEstudiante = async (req, res) => {
-  const user = req.user;
-  res.render(ruta + "/expedienteEstudiante", { user });
+  
+  res.render(ruta + "/expedienteEstudiante");
 };
 
+
+export const expediente = async(req, res) =>{
+
+  res.render(ruta + "/expediente");
+}
 
 
 export const vistasController = {
@@ -38,5 +43,6 @@ export const vistasController = {
   singUp,
   bienvenido,
   expedienteTutor,
-  expedienteEstudiante
+  expedienteEstudiante,
+  expediente
 };
