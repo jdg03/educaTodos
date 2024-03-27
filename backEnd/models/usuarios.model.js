@@ -28,6 +28,19 @@ class Usuario {
         }
     }
 
+    async findByDni(dni) {
+      try {
+          const result = await pool
+              .request()
+              .input("dni", dni)
+              .query("SELECT * FROM usuarios WHERE dni = @dni");
+          return result.recordset[0];
+      } catch (error) {
+          console.log(error);
+          throw error;
+      }
+  }
+
     async getAllUsers() {
         try {
             const result = await pool.request().query("SELECT * FROM usuarios");
