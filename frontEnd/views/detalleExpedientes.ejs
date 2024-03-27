@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio Administrador</title>
-    <link rel="stylesheet" href="./css/styleheader.css">
-    <link rel="stylesheet" href="./css/styleadmin.css">
+    <link rel="stylesheet" href="../css/styledetalleexpediente.css">
+    <link rel="stylesheet" href="../css/styleheader.css">
+    <title>Detalle Expediente</title>
 </head>
 
 <body class="fondo">
@@ -19,13 +19,13 @@
             <ul class="nav-links">
                 <li><a href="/bienvenidoAdmi">Inicio</a></li>
                 <li><a href="#">Matricula</a></li>
-                <li><a href="#">Expediente Estudiantil</a></li>
+                <li><a href="/expedientesEstudiantiles">Expediente Estudiantil</a></li>
                 <li><a href="#">Traslado</a></li>
                 <li><a href="#">Instituciones</a></li>
                 <li><a href="#">Solicitudes</a></li>
             </ul>
         </nav>
-     
+  
         <span>
             <a class="btn"><button><%= user.nombre%>  <%=user.apellido%></button></a>
         </span>
@@ -37,7 +37,7 @@
             <ul class="nav-list-mobile">
                 <li class="nav_link-mobile"><a href="/bienvenidoAdmi">Inicio</a></li>
                 <li class="nav_link-mobile"><a href="#">Matricula</a></li>
-                <li class="nav_link-mobile"><a href="/expedientesEstudiantiles">Expediente Estudiantil</a></li>
+                <li class="nav_link-mobile"><a href="#">Expediente Estudiantil</a></li>
                 <li class="nav_link-mobile"><a href="#">Traslado</a></li>
                 <li class="nav_link-mobile"><a href="#">Instituciones</a></li>
                 <li class="nav_link-mobile"><a href="#">Solicitudes</a></li>
@@ -46,46 +46,57 @@
         </nav>
     </header>
 
-     <!-- sección Bienvenida -->
+    <!-- sección solicitudes -->
     <div class="bienvenida">
-        <h2>Bienvenido  <%= user.nombre %></h2>
+        <h2>Detalle Expediente</h2>
+        <div class="atras">
+            <button type="submit">Regresar</button>
+        </div>
         <div class="cerrar">
-            <button type="submit">Cerrar Sesión</button>
+            <a href="/logout">Cerrar Sesión</a>
         </div>
     </div>
     <hr>
-    <!-- sección SERVICIOS -->
-    <section id="servicios" class="servicios">
-        <div class="fila">
-            <div class="col">
-                <div class="card">
-                    <div class="icono">
-                        <img src="./img/institutos.ico" class="img">
-                    </div>
-                    <h3>Información Institución</h3>
-                    <button class="button" name="infoinstituto" type="submit">Ver más</button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div>
-                        <img src="./img/solicitudes.ico" class="img">
-                    </div>
-                    <h3>Solicitudes</h3>
-                    <button class="button" name="traslado" type="submit">Ver más</button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div>
-                        <img src="./img/profesor.ico" class="img">
-                    </div>
-                    <h3>Profesores</h3>
-                    <button class="button" name="profesores" type="submit">Ver más</button>
-                </div>
-            </div>
 
-    </section>
+    <!-- sección detalle expediente -->
+    <div class="container">
+        <div class="expediente">
+            <h2>Expediente</h2>
+            <hr class="division">
+            <p>Numero de Expediente: </p>
+            <p>Fecha de Creación: </p>
+            <p>Estado: </p>
+        </div>
+
+        <div class="tutor">
+            <h2>Tutor</h2>
+            <hr class="division">
+            <p>Nombre Completo: </p>
+            <p>DNI: </p>
+            <p>Fecha de nacimiento:</p>
+            <p>Genero:</p>
+            <p>Relación con el Estudiante:</p>
+            <p>Ocupación:</p>
+            <p>Dirección:</p>
+            <p>Correo Electrónico;</p>
+            <p>Número de Teléfono:</p>
+            <p>Foto identidad: </p>
+        </div>
+
+        <div class="estudiante">
+            <h2>Estudiante</h2>
+            <hr class="division">
+            <p>Nombre Completo: </p>
+            <p>DNI: </p>
+            <p>Nacionalidad: </p>
+            <p>Fecha de nacimiento:</p>
+            <p>Genero:</p>
+            <p>Dirección:</p>
+            <p>Número de Teléfono: </p>
+            <p>Foto tamaño carnet:</p>
+            <p>Partida de nacimiento:</p>
+        </div>
+    </div>
 
     <footer>
         <div class="footerBottom">

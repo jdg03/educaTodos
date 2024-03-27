@@ -98,33 +98,41 @@ export const authLoginJwt = async (req, res) => {
   const { nombreUsuario, password } = req.body;
 
 // Verifica si existe un usuario registrado
-const estudiante = await Usuario.findByUserName(nombreUsuario);
+const usuario = await Usuario.findByUserName(nombreUsuario);
 
-console.log(estudiante); // Muestra el estudiante encontrado en la consola
+console.log(usuario); // Muestra el estudiante encontrado en la consola
 
 // Verifica si no se encontró ningún estudiante
-if (!estudiante) {
+if (!usuario) {
   console.log("Usuario no registrado");
   return res.redirect("/login");
 }
 
 // Compara la contraseña del formulario con la del estudiante registrado
-const contraseñaValida = await Usuario.comparePassword(password, estudiante.clave);
+const contraseñaValida = await Usuario.comparePassword(password, usuario.clave);
 
-// Verifica si la contraseña no es válida
-if (!contraseñaValida) {
-  console.log("Contraseña inválida");
+// Verifica si la contraseña no es válida, agregue usuario.id_rol !== 1 de momento para poder crear un administrado desde la base de datos sin tener que llenar el formulario
+if (!contraseñaValida && usuario.id_rol == 1) {
+  console.log("Credenciales del usuario inválidas");
   return res.redirect("/login");
+}
+
+//solo si es administrador
+if(usuario.id_rol == 2 && usuario.clave !=password){
+
+  console.log("Credenciales del administrador inválidas");
+  return res.redirect("/login");
+
 }
 
 // Las credenciales ingresadas son correctas y crea el token
 const token = jwt.sign(
   {
-    id: estudiante.id_usuario,
-    correo: estudiante.correo_electronico,
-    rol: estudiante.id_rol,
-    nombre: estudiante.primer_nombre,
-    apellido: estudiante.primer_apellido
+    id: usuario.id_usuario,
+    correo: usuario.correo_electronico,
+    rol: usuario.id_rol,
+    nombre: usuario.primer_nombre,
+    apellido: usuario.primer_apellido
   },
   JWT_SECRETO,
   { expiresIn: JWT_EXPIRES_IN }
@@ -138,7 +146,14 @@ const cookiesOptions = {
 // Almacena el token en una cookie
 res.cookie("jwt", token, cookiesOptions);
 
-return res.redirect("/bienvenido");
+// Verificar el rol del usuario y redirigir según sea necesario
+if (usuario.id_rol === 2) {
+ 
+  return res.redirect('/bienvenidoAdmi');
+} else {
+ 
+  return res.redirect('/bienvenido');
+}
 };
 
 // destruye el token y cierra la sesion
