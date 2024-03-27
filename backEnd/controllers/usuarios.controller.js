@@ -25,10 +25,25 @@ export const findUserById = async (req, res) => {
     }
   };
 
+  export const getUserName = async (req, res) => {
+    const {usuario} = req.body;
+    try {
+      
+      const users = await Usuario.findByUserName(usuario);
+      res.status(200).json(users);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: "Error en el servidor" });
+    }
+  };
+
+
+
   
 export const UsuarioController = {
     getAllUsers,
-    findUserById
+    findUserById,
+    getUserName
 
   };
   

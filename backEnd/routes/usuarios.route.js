@@ -8,5 +8,7 @@ router.get('/usuarios',UsuarioController.getAllUsers)
 //ruta para obtener un usuario
 router.get('/usuario/id',UsuarioController.findUserById)
 
+router.get('/usuarioUserName',UsuarioController.getUserName)
+
 
 export default router;

@@ -96,61 +96,55 @@ export const registro = async (req, res) => {
 //método para iniciar sesion
 export const authLoginJwt = async (req, res) => {
   const { nombreUsuario, password } = req.body;
-  console.log(nombreUsuario)
 
+// Verifica si existe un usuario registrado
+const estudiante = await Usuario.findByUserName(nombreUsuario);
 
-  
-  try {
-    
-    const usuario = await Usuario.findByUserName(nombreUsuario);
-    
-    // verifica si existe un usuario registrado
-    if (!usuario) {
-      console.log("usuario no registrado")
-      return res.redirect("/login");
-    }
+console.log(estudiante); // Muestra el estudiante encontrado en la consola
 
-    //compara la contraseña del formulario con la del usuario registrado
-    const contraseñaValida = await Usuario.comparePassword(password, usuario.clave);
+// Verifica si no se encontró ningún estudiante
+if (!estudiante) {
+  console.log("Usuario no registrado");
+  return res.redirect("/login");
+}
 
-    // verifica si las contraseña es correcta
-    if (!contraseñaValida) {
-      console.log("contraseña invalida")
-      return res.redirect("/login");
-    }
+// Compara la contraseña del formulario con la del estudiante registrado
+const contraseñaValida = await Usuario.comparePassword(password, estudiante.clave);
 
-    //las credenciales que ingreso son correctas y crea el token
-    const token = jwt.sign(
-      {
-        id: usuario.id_usuario,
-        correo: usuario.correo_electronico,
-        rol: usuario.id_rol,
-        nombre: usuario.primer_nombre,
-        apellido: usuario.primer_apellido
-      },
-      JWT_SECRETO,
-      { expiresIn: JWT_EXPIRES_IN }
-    );
+// Verifica si la contraseña no es válida
+if (!contraseñaValida) {
+  console.log("Contraseña inválida");
+  return res.redirect("/login");
+}
 
-    const cookiesOptions = {
-      expires: new Date(Date.now() + 3 * 60 * 60 * 1000), //tiempo que dura la cookie
-      httpOnly: true,
-    };
+// Las credenciales ingresadas son correctas y crea el token
+const token = jwt.sign(
+  {
+    id: estudiante.id_usuario,
+    correo: estudiante.correo_electronico,
+    rol: estudiante.id_rol,
+    nombre: estudiante.primer_nombre,
+    apellido: estudiante.primer_apellido
+  },
+  JWT_SECRETO,
+  { expiresIn: JWT_EXPIRES_IN }
+);
 
-    // Almacenar el token en una cookie
-    res.cookie("jwt", token, cookiesOptions);
+const cookiesOptions = {
+  expires: new Date(Date.now() + 3 * 60 * 60 * 1000), // Tiempo que dura la cookie
+  httpOnly: true,
+};
 
-    return res.redirect("/bienvenido");
-  } catch (error) {
-    console.log(error);
-    return res.status(500).send("Error en el servidor");
-  }
+// Almacena el token en una cookie
+res.cookie("jwt", token, cookiesOptions);
+
+return res.redirect("/bienvenido");
 };
 
 // destruye el token y cierra la sesion
 export const logoutJwt = (req, res) => {
   res.clearCookie("jwt");
-  return res.redirect("/");
+  return res.redirect("/educaTodos");
 };
 
 export const expedienteController = {
