@@ -142,19 +142,19 @@ label:not(.no-estilo, .no-estilo-radio), .info{
     border-color: #c0c5c1;
 }
 
-.areas + input, .areas-one + input{
+/*.areas + input, .areas-one + input{
     display: none;
 }
-
-.areas + input + label, .areas-one + input + label{
+*/
+.areas + input, .areas-one + input{
     color: #c0c5c1;
     border: 1px solid #c0c5c1;
     height: 145px;
     width: 350px;
     background: transparent;
     text-align: center;
-    padding: 20px 50px;
-    font-size: 70px;
+    padding: 20px 10px;
+    font-size: 12px;
     user-select: none;
     cursor: pointer;
     border-radius: 5px;
