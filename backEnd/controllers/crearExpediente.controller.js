@@ -83,7 +83,7 @@ export const registro = async (req, res) => {
     const expedienteEstudiantil = await ExpedienteEstudiantil.createExpedienteEstudiantil(estudiante.id_usuario,1,estudiante.id_rol)
 
     //envia las credenciales al correo especificado por el tutor nombre, apellido, usurio y contraseña
-    sendEmail(estudiante.primer_nombre, estudiante.primer_apellido, nombreUsuario, clave, "gonzalez5.jose52@gmail.com")
+    sendEmail(estudiante.primer_nombre, estudiante.primer_apellido, nombreUsuario, clave, datos.correo_electronico)
 
     //lleva a la pagina de inicio
     return res.redirect("/educaTodos");
