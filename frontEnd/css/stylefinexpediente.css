@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+.fondo {
+    /*background: linear-gradient(rgba(248, 233, 150, 0.75), rgba(248, 233, 150, 0.75)), url("/img/inicio.jpg");
+    background-size: cover;*/
+    background-color: rgb(255, 225, 164);
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+hr {
+    margin-top: 25px;
+    width: 90%;
+    margin-left: 75px;
+    background-color: #003049;
+    border-color: #003049;
+}
+
+/*Bienvenida*/
+
+
+/*Servicios*/
+.container {
+    background-color: #fff;
+    padding: 20px;
+    width: 80%;
+    margin-top: 15px;
+    margin-left: 150px;
+    margin-bottom: 20px;
+}
+
+.estado {
+    background-color: none;
+    margin: 20px;
+    height: 380px;
+    width: 80%;
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 180px;
+
+}
+
+.division {
+    margin-left: 170px;
+    font-size: 70px;
+}
+
+.uno {
+    font-size: 70px;
+    margin-left: 40px;
+}
+
+.estado img {
+    margin-top: 30px;
+    height: 150px;
+    width: 150px;
+    margin-left: 300px;
+}
+
+.cita {
+    background-color: #fcfcfc;
+    margin: 20px;
+    height: 138px;
+    width: 60%;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: solid 1px #fb8500;
+    margin-left: 250px;
+    margin-top: 55px;
+
+}
+
+.cita h2 {
+    color: #003049;
+}
+
+.cita .fecha {
+    height: 30px;
+    width: 280px;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.cita label {
+    margin-top: 55px;
+    margin-bottom: 0px;
+}
+
+.button {
+    width: 200px;
+    height: 50px;
+    outline: none;
+    cursor: pointer;
+    margin-top: 15px;
+    background-color: #fb8500;
+    color: #fff;
+    font-size: 26px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color .3s;
+    margin-left: 480px;
+}
+
+.button:hover {
+    background-color: #fd9824;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+}
+
+/* SECCION RESPONSIVE */
+@media screen and (max-width:1180px) {
+    .inicio {
+        clip-path: none;
+
+    }
+
+
+    .servicios {
+        margin-top: 70px;
+    }
+
+    .bienvenida h2 {
+        font-size: 28px;
+    }
+
+    .cerrar button {
+        font-size: 18px;
+        margin-left: 300px;
+    }
+
+}
+
+@media only screen and (max-width: 995px) {
+
+    hr {
+        margin-left: 20px;
+    }
+
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        width: 90%;
+        margin-left: 40px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .uno {
+        font-size: 50px;
+        margin-left: -30px;
+    }
+
+    .estado img {
+        margin-top: 30px;
+        height: 150px;
+        width: 150px;
+        margin-left: 100px;
+    }
+
+    .division {
+        margin-left: 55px;
+        font-size: 50px;
+    }
+
+    .cita {
+        background-color: #fcfcfc;
+        margin: 20px;
+        height: 148px;
+        width: 100%;
+        padding: 20px;
+        font-size: 20px;
+        border-radius: 5px;
+        border: solid 1px #fb8500;
+        margin-left: 0px;
+        margin-top: 5px;
+
+    }
+
+    .cita h2 {
+        color: #003049;
+        font-size: 22.5px;
+    }
+
+    .cita .fecha {
+        height: 30px;
+        width: 250px;
+        border-radius: 5px;
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+    .cita label {
+        margin-top: 55px;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+
+    .button {
+        margin-left: 270px;
+    }
+
+}
+
+@media screen and (max-width:695px) {
+
+
+    hr {
+        margin-left: 20px;
+    }
+
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        width: 90%;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .uno {
+        font-size: 40px;
+        margin-left: -170px;
+    }
+
+    .estado img {
+        margin-top: 30px;
+        height: 150px;
+        width: 150px;
+        margin-left: -50px;
+    }
+
+    .division {
+        margin-left: -110px;
+        font-size: 40px;
+    }
+
+    .cita {
+        background-color: #fcfcfc;
+        margin: 20px;
+        height: 148px;
+        width: 100%;
+        padding: 20px;
+        font-size: 20px;
+        border-radius: 5px;
+        border: solid 1px #fb8500;
+        margin-left: 0px;
+        margin-top: 5px;
+
+    }
+
+    .cita h2 {
+        color: #003049;
+        font-size: 22.5px;
+    }
+
+    .cita .fecha {
+        height: 30px;
+        width: 250px;
+        border-radius: 5px;
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+    .cita label {
+        margin-top: 55px;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+
+    .button {
+        margin-left: 120px;
+    }
+
+}
