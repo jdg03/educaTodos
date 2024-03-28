@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+.fondo {
+    /*background: linear-gradient(rgba(248, 233, 150, 0.75), rgba(248, 233, 150, 0.75)), url("/img/inicio.jpg");
+    background-size: cover;*/
+    background-color: rgb(255, 225, 164);
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+hr {
+    width: 90%;
+    margin-left: 75px;
+    background-color: #003049;
+    border-color: #003049;
+}
+
+/*Bienvenida*/
+.bienvenida {
+    margin-top: 25px;
+    margin-left: 75px;
+    height: 70px;
+    width: 90%;
+    background-color: rgb(255, 225, 164);
+    display: flex;
+}
+
+.bienvenida h2 {
+    font-size: 35px;
+    padding-top: 15px;
+    margin-left: 50px;
+}
+
+.cerrar button {
+    width: 150px;
+    height: 45px;
+    outline: none;
+    cursor: pointer;
+    margin-top: 15px;
+    background-color: #003049;
+    color: #fff;
+    font-size: 18px;
+    border: 5px;
+    border-color: #000;
+    border-radius: 5px;
+    transition: background-color .3s;
+    margin-left: 540px;
+}
+
+.cerrar button:hover {
+    background-color: rgb(21, 21, 46);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+    color: #fb8500;
+}
+
+
+/*Servicios*/
+.container-expedientes {
+    background-color: rgb(255, 225, 164);
+    padding: 20px;
+    width: 90%;
+    margin-left: 75px;
+    margin-bottom: 20px;
+}
+
+.expediente {
+    background-color: #fcfcfc;
+    margin: 20px;
+    height: 150px;
+    width: 60%;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: solid 1px #003049;
+    margin-left: 250px;
+
+}
+
+.lista {
+    text-decoration: none;
+    color: #000;
+    padding-top: 4px;
+}
+
+.lista .titulo {
+    display: flex;
+}
+
+
+.lista .titulo h5 {
+    font-size: 30px;
+    margin-top: 5px;
+    padding-bottom: 15px;
+    margin-left: 270px;
+}
+.lista p{
+    margin-left: 230px;
+}
+/* SECCION RESPONSIVE */
+@media screen and (max-width:1180px) {
+    .inicio {
+        clip-path: none;
+
+    }
+
+
+    .servicios {
+        margin-top: 70px;
+    }
+
+    .bienvenida h2 {
+        font-size: 28px;
+    }
+    
+    .cerrar button {
+        font-size: 18px;
+        margin-left: 300px;
+    }
+    
+}
+@media only screen and (max-width: 895px) {
+    .header .btn button {
+        font-size: 14px;
+    }
+
+    .header .nav-links a {
+        font-size: 14px;
+    }
+
+    .expediente {
+        background-color: #fcfcfc;
+        margin: 20px;
+        height: 150px;
+        width: 100%;
+        padding: 20px;
+        font-size: 20px;
+        border-radius: 5px;
+        border: solid 1px #003049;
+        margin-left: 20px;
+    
+    }
+
+    .lista .titulo h5 {
+        font-size: 30px;
+        margin-top: 5px;
+        padding-bottom: 15px;
+        margin-left: 120px;
+    }
+    .lista p{
+        margin-left: 95px;
+    }
+}
+
+@media screen and (max-width:695px) {
+
+    
+    .bienvenida h2 {
+        font-size: 20px;
+    }
+    
+    .container-expedientes {
+        background-color: rgb(255, 225, 164);
+        padding: 20px;
+        width: 90%;
+        margin-left: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .expediente {
+        background-color: #fcfcfc;
+        margin: 20px;
+        height: 150px;
+        width: 100%;
+        padding: 20px;
+        font-size: 20px;
+        border-radius: 5px;
+        border: solid 1px #003049;
+        margin-left: 20px;
+    
+    }
+
+    .lista .titulo h5 {
+        font-size: 30px;
+        margin-top: 5px;
+        padding-bottom: 15px;
+        margin-left: 120px;
+    }
+    .lista p{
+        margin-left: 95px;
+    }
+}
