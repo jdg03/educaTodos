@@ -14,10 +14,10 @@
     border-radius: 20px;
     background-color: rgba(246, 249, 223, 0.8);
     box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
-    height: 500px;
+    height: 80%;
     width: 65%;
     transition: all is ease;
-    margin-left: 260px;
+    margin-left: 20%;
     margin-top: 10px;
     margin-bottom: 10px;
     overflow-y: scroll;
@@ -36,8 +36,8 @@
 .header + img{
     width: 8%;
     position: absolute;
-    top: 55px;
-    left: 190px;
+    top: 11%;
+    left: 11%;
     z-index: 1;
     transition: transform 0.3s ease;
 }

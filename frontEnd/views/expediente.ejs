@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/styleinformation.css">
 </head>
 
-<body class="fondo">   
+<body class="fondo">
     <header class="header">
         <div class="logo">
             <a href="/educaTodos"><img src="../img/EDUCATODOS.png" alt=""> </a>
@@ -35,17 +35,17 @@
                             <select name="relacionEstudiante" id="relacion">
                                 <option value="padreBio">Padre biológico</option>
                                 <option value="madreBio">Madre biológica</option>
-                                <option value="tutorLegal">Tutor legal</option>                        
+                                <option value="tutorLegal">Tutor legal</option>
                                 <option value="familiar">Familiar cercano</option>
                                 <option value="mentor">Mentor</option>
                             </select>
                         </div>
-        
+
                         <div class="form-group">
                             <label for="id">Número de Identidad</label>
                             <input class="info" id="id" name="dni" type="text">
                         </div>
-        
+
                         <div class="form-group">
                             <label for="nombre">Primer nombre</label>
                             <input class="info" id="" name="primer_nombre_tutor" type="text">
@@ -65,29 +65,29 @@
                             <label for="nombre">Segundo apellido</label>
                             <input class="info" id="nombre" name="segundo_apellido_tutor" type="text">
                         </div>
-        
+
                         <div class="form-group">
                             <label for="tel">Número de teléfono</label>
                             <input class="info" id="tel" name="telefono" type="text">
                         </div>
-        
+
                         <div class="form-group">
                             <label for="ocup">Ocupación</label>
                             <input class="info" id="ocup" name="ocupacion" type="text">
                         </div>
-        
+
                         <div class="form-group">
                             <label for="correo">Correo electrónico</label>
                             <input class="info" id="correo" name="correo_electronico" type="text">
                         </div>
                     </div>
-    
+
                     <div class="form-group-right">
                         <div class="form-group" id="div-date">
                             <label class="no-estilo" for="fecha">Fecha de nacimiento</label>
                             <input type="date" if="fecha" name="fecha_nacimiento_tutor">
                         </div>
-    
+
                         <div class="form-group-radio">
                             <label class="no-estilo">Género</label>
                             <label class="no-estilo-radio">
@@ -97,18 +97,18 @@
                                 <span>Masculino</span>
                             </label>
                         </div>
-    
+
                         <div class="form-group">
                             <label class="areas">Dirección de residencia</label>
                             <textarea name="residenceTutor" cols="40" rows="4"></textarea>
                         </div>
-    
+
                         <div class="form-group">
                             <label class="areas" for="uploadBtn">Identidad (Formato imagen o pdf)</label>
                             <input class="input-file" type="file" name="fileId" id="uploadBtn">
                             <label for="uploadBtn"></label>
                         </div>
-    
+
                         <!--<div class="contenedor-botones">
                             <button type="button" onclick="estudianteView()">←  Anterior</button>
                             <button name="enviar" type="submit">Enviar información ✓</button>
@@ -124,7 +124,7 @@
                             <label for="id">Número de Identidad</label>
                             <input class="info" id="id" name="id_estudiante" type="text">
                         </div>
-        
+
                         <div class="form-group">
                             <label for="nombre">Primer nombre</label>
                             <input class="info" id="" name="primer_nombre_estudiante" type="text">
@@ -150,7 +150,7 @@
                             <input class="input-file" type="file" name="fotografia_estudiante" id="uploadBtn">
                             <label for="uploadBtn"></label>
                         </div>
-                     </div>
+                    </div>
 
                     <div class="form-group-right">
                         <div class="form-group" id="div-date">
@@ -190,17 +190,13 @@
                 </div>
             </form>
         </div>
-        
+
         <div class="contenedor-botones">
             <button name="enviar" form="formulary" type="submit">Enviar información ✓</button>
         </div>
     </div>
 
-    <footer>
-        <div class="footerBottom">
-            <p>EDUCATODOS &copy;2024 Diseñado por <span class="designer">Grupo 5</span></p>
-        </div>
-    </footer>
+
 
     <script src="js/main.js"></script>
 
@@ -208,6 +204,4 @@
         let fileinputs = document.querySelectorAll(".input-file");
     </script>
 
-</body>
-
-</html>
+    <%- include('partials/footer') -%>
