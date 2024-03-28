@@ -55,13 +55,13 @@ hr {
     margin-left: 10px;
 }
 
-.cerrar button:hover, .atras button:hover {
+.cerrar button:hover, .atras button:hover, .atras-sol button:hover, .atras-user button:hover {
     background-color: rgb(21, 21, 46);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
     color: #fb8500;
 }
 
-.atras button {
+.atras button, .atras-sol button, .atras-user button {
     width: 150px;
     height: 35px;
     outline: none;
@@ -74,7 +74,18 @@ hr {
     border-color: #000;
     border-radius: 15px;
     transition: background-color .3s;
+}
+
+.atras button {
+    margin-left: 475px;
+}
+
+.atras-sol button {
     margin-left: 455px;
+}
+
+.atras-user button {
+    margin-left: 490px;
 }
 
 /* Tabla */
