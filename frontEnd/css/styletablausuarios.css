@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+body {
+    /*background-image: url("img/inicio.jpg");*/
+
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.fondo {
+    background: linear-gradient(rgba(255, 224, 157, 0.75), rgba(255, 224, 157, 0.75)), url("../img/inicio.jpg");
+    background-color: rgb(255, 225, 164);
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/*Bienvenida*/
+hr {
+    width: 80%;
+    margin-left: 11%;
+    border-color: #003049;
+}
+
+.bienvenida {
+    margin-top: 15px;
+    margin-left: 65px;
+    height: 70px;
+    width: 90%;
+    display: flex;
+}
+
+.bienvenida h2 {
+    font-size: 35px;
+    padding-top: 15px;
+    margin-left: 80px;
+}
+
+.cerrar button {
+    width: 150px;
+    height: 35px;
+    outline: none;
+    cursor: pointer;
+    margin-top: 25px;
+    background-color: #003049;
+    color: #fff;
+    font-size: 14px;
+    border: 5px;
+    border-color: #000;
+    border-radius: 15px;
+    transition: background-color .3s;
+    margin-left: 10px;
+}
+
+.cerrar button:hover, .atras button:hover {
+    background-color: rgb(21, 21, 46);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+    color: #fb8500;
+}
+
+.atras button {
+    width: 150px;
+    height: 35px;
+    outline: none;
+    cursor: pointer;
+    margin-top: 25px;
+    background-color: #003049;
+    color: #fff;
+    font-size: 14px;
+    border: 5px;
+    border-color: #000;
+    border-radius: 15px;
+    transition: background-color .3s;
+    margin-left: 490px;
+}
+
+/* Tabla */
+.table-container {
+    width: 80%;
+    height: 64%;
+    margin-left: 11%;
+    margin-top: 10px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.table-container::-webkit-scrollbar {
+    width: 8px;
+    background-color: #FCD19F;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #D7C0D0;
+    border-radius: 6px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table .table-header {
+    color: white;
+    height: 33px;
+}
+
+.header-row th{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #333138;
+}
+
+td {
+    height: 36px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(246, 249, 223, 0.8);
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #DCC9B6;
+}
+
+tbody tr a:nth-child(2) {
+    color: #D10000;
+}
+
+a{
+    text-decoration: none;
+}
+
+tbody tr:nth-child(even) a:hover {
+    color: black;
+}
+
+tbody tr:nth-child(odd) a:hover {
+    color: #E1F2FE;
+}
+
+.header-row th {
+    text-align: left;
+}
+
+#th-id {
+    width: 50px;
+    padding-left: 7px;
+}
+
+tbody tr td:first-child {
+    padding-left: 7px;
+}
