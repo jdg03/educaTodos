@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import Usuario from "../models/usuarios.model.js";
 import Tutor from "../models/tutor.model.js";
 import ExpedienteEstudiantil from "../models/expedienteEstudiantil.model.js"
-import { sendEmail, generateRandom } from "../services/mail.service.js";
+import { sendCorreo, generateRandom } from "../services/mail.service.js";
 
 dotenv.config();
 
@@ -72,8 +72,7 @@ export const registro = async (req, res) => {
       clave: hashPassword//contraseña encriptada
 
     };
-
-   
+    
     //usuario
     const estudiante = await Usuario.createUser(nuevoEstudiante);
 
@@ -83,7 +82,8 @@ export const registro = async (req, res) => {
     const expedienteEstudiantil = await ExpedienteEstudiantil.createExpedienteEstudiantil(estudiante.id_usuario,1,estudiante.id_rol)
 
     //envia las credenciales al correo especificado por el tutor nombre, apellido, usurio y contraseña
-    sendEmail(estudiante.primer_nombre, estudiante.primer_apellido, nombreUsuario, clave, tutor.correo_electronico)
+    sendCorreo(estudiante.primer_nombre, estudiante.primer_apellido, nombreUsuario, clave, tutor.correo_electronico)
+    console.log("se enviara corrreo a: "+ tutor.correo_electronico)
 
     //lleva a la pagina de inicio
     return res.redirect("/educaTodos");

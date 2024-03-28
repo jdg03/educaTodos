@@ -1,38 +1,48 @@
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
 export const generateRandom = (length) => {
-    // Longitud de la contraseña aleatoria
-   
-    // Caracteres válidos para la contraseña
-    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    let password = "";
-    for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * charset.length);
-      password += charset[randomIndex];
-    }
-    return password;
+  // Longitud de la contraseña aleatoria
+ 
+  // Caracteres válidos para la contraseña
+  const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * charset.length);
+    password += charset[randomIndex];
+  }
+  return password;
+};
+
+export const sendCorreo = async (nombre, apellido, nombreUsuario, clave, correoDestinatario) => {
+  // Configuración del transporter
+  let transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
+      auth: {
+          user: 'educatodos.edu@gmail.com', 
+          pass: 'fqnw jiee jgkm ngbc'
+      }
+  });
+
+  // Detalles del correo
+  let mailOptions = {
+      from: 'tudireccion@dominio.com',
+      to: correoDestinatario, // Dirección de correo del destinatario
+      subject: 'Credenciales de acceso', // Asunto del correo
+      text: `Hola,${nombre} ${apellido},\n\n` +
+            `Se ha creado una cuenta para ti en nuestra plataforma.\n\n` +
+            `Usuario: ${nombreUsuario}\n` +
+            `Contraseña: ${clave}\n\n` +
+            `Por favor, inicia sesión utilizando estas credenciales.\n\n`
+            
   };
 
-  export const sendEmail = async (primer_nombre,primer_apellido, usuario, clave, to) => {
-
-    try {
-      // Crea una instancia de Resend con tu API key
-      const resend = new Resend('re_LTGcpYJL_7CYF7LCE9KmCDF59yb6bDKAj');
-  
-      // Mensaje con las credenciales
-      const subject = 'Credenciales de inicio de sesión en educaTodos';
-      const htmlContent = `<p>Hola,</p><p>Las credenciales de inicio de sesión del estudiante: ${primer_nombre} ${primer_apellido}  en educaTodos son:</p><p>Usuario: ${usuario}</p><p>Contraseña: ${clave}</p>`;
-  
-      // Envía el correo electrónico
-      await resend.emails.send({
-        from: 'onboarding@resend.dev',
-        to: to,
-        subject: subject,
-        html: htmlContent
-      });
-    } catch (error) {
-      console.log("Error al enviar el correo electrónico:", error);
-      throw error; // Lanza el error para manejarlo en el bloque catch donde llamas a esta función
-    }
+  try {
+      // Envío del correo
+      let info = await transporter.sendMail(mailOptions);
+      console.log('Correo enviado:');
+  } catch (error) {
+      console.error('Error al enviar el correo:', error);
   }
-
+}
