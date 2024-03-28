@@ -15,7 +15,34 @@
   height: 100vh;
 }
 
-/************************************************************/
+
+/*Bienvenida*/
+.bienvenida {
+  margin-top: 25px;
+  margin-left: 75px;
+  height: 70px;
+  width: 90%;
+  display: flex;
+}
+
+.bienvenida h2 {
+  font-size: 35px;
+  padding-top: 15px;
+  margin-left: 50px;
+}
+
+.cerrar button:hover {
+  background-color: rgb(21, 21, 46);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+  color: #fb8500;
+}
+
+hr {
+  width: 90%;
+  margin-left: 75px;
+  background-color: #fb8500;
+  border-color: #003049;
+}
 
 /*Servicios*/
 section.servicios {
