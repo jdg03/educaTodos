@@ -9,7 +9,7 @@ router.get('/bienvenidoAdmi', verifyToken, verifyAdmin, vistasAdmiController.bie
 
 router.get('/expedientesEstudiantiles', verifyToken, verifyAdmin, vistasAdmiController.expedientesEstudiantiles);
 
-router.get('/detalleEstudiantiles', verifyToken, verifyAdmin, vistasAdmiController.detalleExpedientes);
+router.get('/detalleExpediente', verifyToken, verifyAdmin, vistasAdmiController.detalleExpedientes);
 
 router.get('/solicitudes', verifyToken, verifyAdmin, vistasAdmiController.solicitudes);
 

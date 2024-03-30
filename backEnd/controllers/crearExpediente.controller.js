@@ -85,8 +85,8 @@ export const registro = async (req, res) => {
     sendCorreo(estudiante.primer_nombre, estudiante.primer_apellido, nombreUsuario, clave, tutor.correo_electronico)
     console.log("se enviara corrreo a: "+ tutor.correo_electronico)
 
-    //lleva a la pagina de inicio
-    return res.redirect("/educaTodos");
+    //lleva a la vista de expediente creado exitosamente
+    return res.redirect("/fineexpedienteEs");
   } catch (error) {
     console.log(error);
     return res.status(500).send("Error en el servidor");
