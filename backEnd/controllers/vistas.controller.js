@@ -27,7 +27,13 @@ export const expedienteEstudiante = async (req, res) => {
 
 export const expediente = async(req, res) =>{
 
-  res.render(ruta + "/expediente");
+  res.render(ruta + "/creacionExpediente");
+}
+
+
+export const expedienteCreado = async(req, res) =>{
+
+  res.render(ruta + "/fineexpedienteEs");
 }
 
 //renderiza la vista del usuario
@@ -51,5 +57,6 @@ export const vistasController = {
   expedienteTutor,
   expedienteEstudiante,
   expediente,
-  bienvenidoAdmi
+  bienvenidoAdmi,
+  expedienteCreado
 };

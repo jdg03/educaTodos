@@ -11,6 +11,8 @@ router.get('/expedientesEstudiantiles', verifyToken, verifyAdmin, vistasAdmiCont
 
 router.get('/detalleEstudiantiles', verifyToken, verifyAdmin, vistasAdmiController.detalleExpedientes);
 
-router.get('/solicitudesEstudiantiles', verifyToken, verifyAdmin, vistasAdmiController.solicitudes);
+router.get('/solicitudes', verifyToken, verifyAdmin, vistasAdmiController.solicitudes);
+
+router.get('/institucionesAdmi', verifyToken, verifyAdmin, vistasAdmiController.institucionesAdmi);
 
 export default router;

@@ -13,6 +13,7 @@ const app = express();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 //Utiliza el método join del módulo path para combinar dos rutas en una sola 
 export const ruta = path.join(__dirname, '../frontEnd/views');
+export const rutaAdmi = path.join(__dirname, '../frontEnd/views/admi');
 
 // Define el motor de plantillas y establece la ruta de las plantillas
 app.set('view engine', 'ejs');
