@@ -20,6 +20,12 @@ router.get('/expedienteEstudiante', vistasController.expedienteEstudiante)
 //ruta que lleva a la pagina de bienvenido protegida con middleware
 router.get('/bienvenido',verifyToken, vistasController.bienvenido);
 
+//ruta que muestra un mensaje que confirma la creacion del expediente
+router.get('/expedienteCreado',verifyToken, vistasController.expedienteCreado);
+
+
+
+
 
 
 export default router;
