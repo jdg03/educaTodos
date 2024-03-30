@@ -15,4 +15,6 @@ router.get('/solicitudes', verifyToken, verifyAdmin, vistasAdmiController.solici
 
 router.get('/institucionesAdmi', verifyToken, verifyAdmin, vistasAdmiController.institucionesAdmi);
 
+router.get('/usuarios',  verifyToken, verifyAdmin, vistasAdmiController.usuarios)
+
 export default router;

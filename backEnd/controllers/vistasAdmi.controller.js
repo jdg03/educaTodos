@@ -25,10 +25,16 @@ export const institucionesAdmi = async (req, res)=>{
   res.render(rutaAdmi + "/tablainstitutos", { user });
 }
 
+export const usuarios = async(req, res) =>{
+  const user = req.user;
+  res.render(rutaAdmi + "/tablausuarios", { user });
+}
+
 export const vistasAdmiController = {
   bienvenidoAdmi,
   expedientesEstudiantiles,
   detalleExpedientes,
   solicitudes,
-  institucionesAdmi
+  institucionesAdmi,
+  usuarios
 };
