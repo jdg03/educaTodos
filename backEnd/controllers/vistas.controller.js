@@ -43,9 +43,6 @@ export const bienvenido = async (req, res) => {
 };
 
 
-
-
-
 export const vistasController = {
   login,
   singUp,

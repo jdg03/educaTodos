@@ -31,7 +31,7 @@ export const verifyToken = async (req, res, next) => {
 
       console.log(req.user.rol);
       // Verifica si el usuario tiene un rol válido
-      if (req.user.rol === 2) {
+      if (req.user.rol === 3) {
         // Si el usuario tiene rol de administrador, continúa con el siguiente controlador
         return next();
       } else {

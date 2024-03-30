@@ -21,18 +21,19 @@ export const registro = async (req, res) => {
     //const existingUser = await Usuario.findByEmail(datos.correo_electronico);
     const dniPersona = await Persona.findByDni(datos.dni);
 
+     //verifica si existe alguien con ese dni ya registrado
+     if (dniPersona) {
+      console.log("Dni ya registrado");
+      return res.redirect("/expediente");
+    }
+
     //verifica si existe alguien con ese correo
     //if (existingUser) {
     //console.log("correo ya registrado")
     //return res.redirect("/expediente");
     //}
 
-    //verifica si existe alguien con ese dni ya registrado
-    if (dniPersona) {
-      console.log("Dni ya registrado");
-      return res.redirect("/expediente");
-    }
-
+   
    
     const personaTutor = {
       primer_nombre: datos.primer_nombre_tutor,
@@ -77,6 +78,7 @@ export const registro = async (req, res) => {
     const clave = generateRandom(4);
     const hashPassword = await bcrypt.hash(clave, 8);  //encriptada de la contraseña generada aleatoriamente
 
+    //datos del nuevo usuario
     const nuevoUsuario ={
       id_usuario: personaEstudianteCreada.id_persona,
       nombre_usuario:nombreUsuario,
@@ -152,14 +154,15 @@ export const authLoginJwt = async (req, res) => {
     return res.redirect("/login");
   }
 
+  const usuarioPersona = await Persona.findById(usuario.id_usuario);
+
   // Las credenciales ingresadas son correctas y crea el token
   const token = jwt.sign(
     {
       id: usuario.id_usuario,
-      correo: usuario.correo_electronico,
       rol: usuario.id_rol,
-      nombre: usuario.primer_nombre,
-      apellido: usuario.primer_apellido,
+      nombre: usuarioPersona.primer_nombre,
+      apellido: usuarioPersona.primer_apellido,
     },
     JWT_SECRETO,
     { expiresIn: JWT_EXPIRES_IN }
@@ -174,7 +177,7 @@ export const authLoginJwt = async (req, res) => {
   res.cookie("jwt", token, cookiesOptions);
 
   // Verificar el rol del usuario y redirigir según sea necesario
-  if (usuario.id_rol === 2) {
+  if (usuario.id_rol === 3) {
     return res.redirect("/bienvenidoAdmi");
   } else {
     return res.redirect("/bienvenido");
