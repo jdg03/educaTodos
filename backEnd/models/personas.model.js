@@ -24,6 +24,19 @@ class Persona {
     }
   }
 
+  async findByDni(dni) {
+    try {
+      const result = await pool
+        .request()
+        .input("dni", dni)
+        .query("SELECT * FROM personas WHERE dni = @dni");
+      return result.recordset[0];
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
   async createPersona(persona) {
     const { primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, dni, fecha_nacimiento, genero_id } = persona;
     try {
@@ -37,7 +50,7 @@ class Persona {
         .input("fecha_nacimiento", fecha_nacimiento)
         .input("genero_id", genero_id)
         .query(
-          "INSERT INTO personas (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, dni, fecha_nacimiento, genero_id) OUTPUT INSERTED.* VALUES (@primer_nombre, @segundo_nombre, @primer_apellido, @segundo_apellido, @dni, @fecha_nacimiento, genero_id)"
+          "INSERT INTO personas (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, dni, fecha_nacimiento, genero_id) OUTPUT INSERTED.* VALUES (@primer_nombre, @segundo_nombre, @primer_apellido, @segundo_apellido, @dni, @fecha_nacimiento, @genero_id)"
         );
       return result.recordset[0];
     } catch (error) {

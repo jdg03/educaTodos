@@ -33,7 +33,7 @@ export const expediente = async(req, res) =>{
 
 export const expedienteCreado = async(req, res) =>{
 
-  res.render(ruta + "/fineexpedienteEs");
+  res.render(ruta + "/finexpedienteEs");
 }
 
 //renderiza la vista del usuario
@@ -43,11 +43,7 @@ export const bienvenido = async (req, res) => {
 };
 
 
-//renderiza la vista del administrador
-export const bienvenidoAdmi = async (req, res) => {
-  const user = req.user;
-  res.render(ruta + "/admi/inicioAdministrador", { user });
-};
+
 
 
 export const vistasController = {
@@ -57,6 +53,5 @@ export const vistasController = {
   expedienteTutor,
   expedienteEstudiante,
   expediente,
-  bienvenidoAdmi,
   expedienteCreado
 };

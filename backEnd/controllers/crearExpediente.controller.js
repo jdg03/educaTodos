@@ -1,92 +1,118 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-//import Persona from "../models/personas.model.js";
+import Persona from "../models/personas.model.js";
 import Usuario from "../models/usuarios.model.js";
 import Tutor from "../models/tutor.model.js";
-import ExpedienteEstudiantil from "../models/expedienteEstudiantil.model.js"
+import ExpedienteEstudiantil from "../models/expedienteEstudiantil.model.js";
 import { sendCorreo, generateRandom } from "../services/mail.service.js";
 
 dotenv.config();
 
 const { JWT_SECRETO, JWT_EXPIRES_IN } = process.env;
 
+
 //metodo para registarse
 export const registro = async (req, res) => {
-  const datos = req.body;
   
+  const datos = req.body;
 
   try {
     //const existingUser = await Usuario.findByEmail(datos.correo_electronico);
-    const dniUser = await Usuario.findByDni(datos.dni);
+    const dniPersona = await Persona.findByDni(datos.dni);
 
     //verifica si existe alguien con ese correo
     //if (existingUser) {
-      //console.log("correo ya registrado")
-      //return res.redirect("/expediente");
+    //console.log("correo ya registrado")
+    //return res.redirect("/expediente");
     //}
 
     //verifica si existe alguien con ese dni ya registrado
-    if (dniUser) {
-      console.log("Dni ya registrado")
+    if (dniPersona) {
+      console.log("Dni ya registrado");
       return res.redirect("/expediente");
-    } 
+    }
 
-    // obteniendo los campos que corresponden al tutor
-    const nuevoTutor = {
+   
+    const personaTutor = {
       primer_nombre: datos.primer_nombre_tutor,
       segundo_nombre: datos.segundo_nombre_tutor,
       primer_apellido: datos.primer_apellido_tutor,
       segundo_apellido: datos.segundo_apellido_tutor,
       dni: datos.dni,
       fecha_nacimiento: datos.fecha_nacimiento_tutor,
-      genero_id: datos.genero_id_tutor,
-      ocupacion: datos.ocupacion,
-      correo_electronico: datos.correo_electronico,
-      telefono: datos.telefono,
-     
+      genero_id: datos.genero_id_tutor
     };
 
-    //crea al tutor
-    const tutor = await Tutor.createTutor(nuevoTutor);
-    console.log("se inserto al tutor:"+tutor.id_tutor)
-
-    //crea un nombre de usuario 
-    const nombreUsuario = datos.primer_nombre_estudiante+datos.segundo_nombre_estudiante+ generateRandom(4);
-    const clave = generateRandom(4)
-  
-    // crea la contraseña encriptada de la contraseña generada aleatoriamente
-    const hashPassword = await bcrypt.hash(clave, 8);
-
-    // obtenine los campos que corresponden al estudiante(usuario) y asigna un nombre de usuario y una contraseña
-    const nuevoEstudiante = {
+    const personaEstudiante = {
       primer_nombre: datos.primer_nombre_estudiante,
       segundo_nombre: datos.segundo_nombre_estudiante,
       primer_apellido: datos.primer_apellido_estudiante,
       segundo_apellido: datos.segundo_apellido_estudiante,
       dni: datos.id_estudiante,
       fecha_nacimiento: datos.fecha_nacimiento_estudiante,
-      genero_id: datos.genero_id_estudiante,
-      id_rol: 1, // rol por defecto 1
-      usuario:nombreUsuario,
-      clave: hashPassword//contraseña encriptada
-
+      genero_id: datos.genero_id_estudiante
     };
-    
+
+    const personaTutorCreada = await Persona.createPersona(personaTutor);
+    const personaEstudianteCreada = await Persona.createPersona(personaEstudiante);
+
+    //datos del nuevo tutor
+    const nuevoTutor = {
+      id_tutor: personaTutorCreada.id_persona,
+      ocupacion: datos.ocupacion,
+      correo_electronico: datos.correo_electronico,
+      telefono: datos.telefono
+    }
+  
+    //crea al tutor
+    const tutorCreado = await Tutor.createTutor(nuevoTutor);
+    console.log("se inserto al tutor:" + tutorCreado.id_tutor);
+
+    //crea un nombre de usuario
+    const nombreUsuario =
+    datos.primer_nombre_estudiante +
+    datos.segundo_nombre_estudiante +
+    generateRandom(4);
+    const clave = generateRandom(4);
+    const hashPassword = await bcrypt.hash(clave, 8);  //encriptada de la contraseña generada aleatoriamente
+
+    const nuevoUsuario ={
+      id_usuario: personaEstudianteCreada.id_persona,
+      nombre_usuario:nombreUsuario,
+      clave:hashPassword,
+      id_rol: 1
+
+    }
+
     //usuario
-    const estudiante = await Usuario.createUser(nuevoEstudiante);
+    const estudiante = await Usuario.createUser(nuevoUsuario);
+    console.log("estudiante creado:"+estudiante.id_estudiante);
 
     //logica para guardar los archivos y que pertenezcan a tutor.id y estudiante.id
 
-    //creao el expediente con los datos de tutor.id estudiante.id_usuario y institucion = 1
-    const expedienteEstudiantil = await ExpedienteEstudiantil.createExpedienteEstudiantil(estudiante.id_usuario,1,estudiante.id_rol)
+    //crea el expediente con los datos de tutor.id estudiante.id_usuario y institucion = 1
+    const expedienteEstudiantil ={
+      id_estudiante:estudiante.id_usuario,
+      id_rol:estudiante.id_rol,
+      id_institucion_actual: 1
+    }
+
+    const expedienteCreado = await ExpedienteEstudiantil.createExpedienteEstudiantil(expedienteEstudiantil);
+    console.log("se creo el expediente:"+expedienteCreado.id_expediente);  
 
     //envia las credenciales al correo especificado por el tutor nombre, apellido, usurio y contraseña
-    sendCorreo(estudiante.primer_nombre, estudiante.primer_apellido, nombreUsuario, clave, tutor.correo_electronico)
-    console.log("se enviara corrreo a: "+ tutor.correo_electronico)
+    sendCorreo(
+      estudiante.primer_nombre,
+      estudiante.primer_apellido,
+      nombreUsuario,
+      clave,
+      tutorCreado.correo_electronico
+    );
+    console.log("se enviara corrreo a: " + tutorCreado.correo_electronico);
 
     //lleva a la vista de expediente creado exitosamente
-    return res.redirect("/fineexpedienteEs");
+    return res.redirect("/expedienteCreado");
   } catch (error) {
     console.log(error);
     return res.status(500).send("Error en el servidor");
@@ -97,63 +123,62 @@ export const registro = async (req, res) => {
 export const authLoginJwt = async (req, res) => {
   const { nombreUsuario, password } = req.body;
 
-// Verifica si existe un usuario registrado
-const usuario = await Usuario.findByUserName(nombreUsuario);
+  // Verifica si existe un usuario registrado
+  const usuario = await Usuario.findByUserName(nombreUsuario);
 
-console.log(usuario); // Muestra el estudiante encontrado en la consola
+  console.log(usuario); // Muestra el estudiante encontrado en la consola
 
-// Verifica si no se encontró ningún estudiante
-if (!usuario) {
-  console.log("Usuario no registrado");
-  return res.redirect("/login");
-}
+  // Verifica si no se encontró ningún estudiante
+  if (!usuario) {
+    console.log("Usuario no registrado");
+    return res.redirect("/login");
+  }
 
-// Compara la contraseña del formulario con la del estudiante registrado
-const contraseñaValida = await Usuario.comparePassword(password, usuario.clave);
+  // Compara la contraseña del formulario con la del estudiante registrado
+  const contraseñaValida = await Usuario.comparePassword(
+    password,
+    usuario.clave
+  );
 
-// Verifica si la contraseña no es válida, agregue usuario.id_rol !== 1 de momento para poder crear un administrado desde la base de datos sin tener que llenar el formulario
-if (!contraseñaValida && usuario.id_rol == 1) {
-  console.log("Credenciales del usuario inválidas");
-  return res.redirect("/login");
-}
+  // Verifica si la contraseña no es válida, agregue usuario.id_rol !== 1 de momento para poder crear un administrado desde la base de datos sin tener que llenar el formulario
+  if (!contraseñaValida && usuario.id_rol == 1) {
+    console.log("Credenciales del usuario inválidas");
+    return res.redirect("/login");
+  }
 
-//solo si es administrador
-if(usuario.id_rol == 2 && usuario.clave !=password){
+  //solo si es administrador
+  if (usuario.id_rol == 2 && usuario.clave != password) {
+    console.log("Credenciales del administrador inválidas");
+    return res.redirect("/login");
+  }
 
-  console.log("Credenciales del administrador inválidas");
-  return res.redirect("/login");
+  // Las credenciales ingresadas son correctas y crea el token
+  const token = jwt.sign(
+    {
+      id: usuario.id_usuario,
+      correo: usuario.correo_electronico,
+      rol: usuario.id_rol,
+      nombre: usuario.primer_nombre,
+      apellido: usuario.primer_apellido,
+    },
+    JWT_SECRETO,
+    { expiresIn: JWT_EXPIRES_IN }
+  );
 
-}
+  const cookiesOptions = {
+    expires: new Date(Date.now() + 3 * 60 * 60 * 1000), // Tiempo que dura la cookie
+    httpOnly: true,
+  };
 
-// Las credenciales ingresadas son correctas y crea el token
-const token = jwt.sign(
-  {
-    id: usuario.id_usuario,
-    correo: usuario.correo_electronico,
-    rol: usuario.id_rol,
-    nombre: usuario.primer_nombre,
-    apellido: usuario.primer_apellido
-  },
-  JWT_SECRETO,
-  { expiresIn: JWT_EXPIRES_IN }
-);
+  // Almacena el token en una cookie
+  res.cookie("jwt", token, cookiesOptions);
 
-const cookiesOptions = {
-  expires: new Date(Date.now() + 3 * 60 * 60 * 1000), // Tiempo que dura la cookie
-  httpOnly: true,
-};
-
-// Almacena el token en una cookie
-res.cookie("jwt", token, cookiesOptions);
-
-// Verificar el rol del usuario y redirigir según sea necesario
-if (usuario.id_rol === 2) {
- 
-  return res.redirect('/bienvenidoAdmi');
-} else {
- 
-  return res.redirect('/bienvenido');
-}
+  // Verificar el rol del usuario y redirigir según sea necesario
+  if (usuario.id_rol === 2) {
+    return res.redirect("/bienvenidoAdmi");
+  } else {
+    return res.redirect("/bienvenido");
+  }
 };
 
 // destruye el token y cierra la sesion

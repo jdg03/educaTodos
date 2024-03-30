@@ -7,6 +7,15 @@
     font-family: 'Nunito', sans-serif;
 }
 
+body {
+    /*background-image: url("img/inicio.jpg");*/
+
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 
 /*header*/
 .header {

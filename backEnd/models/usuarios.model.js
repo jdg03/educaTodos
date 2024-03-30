@@ -15,12 +15,12 @@ class Usuario {
         }
     }
 
-    async findByUserName(nombreUsuario) {
+    async findByUserName(nombre_usuario) {
         try {
             const result = await pool
                 .request()
-                .input("nombreUsuario", nombreUsuario) // Cambiar a nombreUsuario
-                .query("SELECT * FROM usuarios WHERE usuario = @nombreUsuario"); // Cambiar a @nombreUsuario
+                .input("nombre_usuario", nombre_usuario)
+                .query("SELECT * FROM usuarios WHERE nombre_usuario = @nombre_usuario");
             return result.recordset[0];
         } catch (error) {
             console.log(error);
@@ -52,7 +52,7 @@ class Usuario {
         }
     }
 
-    async createUser(estudiante) {
+   /**  async createUser(estudiante) {
         try {
             const result = await pool
                 .request()
@@ -69,6 +69,22 @@ class Usuario {
                 .query(
                     "INSERT INTO usuarios (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, dni, fecha_nacimiento, genero_id, usuario, clave, id_rol) OUTPUT INSERTED.* VALUES (@primer_nombre, @segundo_nombre, @primer_apellido, @segundo_apellido, @dni, @fecha_nacimiento, @genero_id, @usuario, @clave, @id_rol)"
                 );
+            return result.recordset[0];
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }*/
+
+    async createUser(usuario) {
+        try {
+            const result = await pool
+                .request()
+                .input("id_usuario", usuario.id_usuario)
+                .input("nombre_usuario", usuario.nombre_usuario)
+                .input("clave", usuario.clave)
+                .input("id_rol", usuario.id_rol)
+                .query("INSERT INTO usuarios (id_usuario, nombre_usuario, clave, id_rol) OUTPUT INSERTED.* VALUES (@id_usuario, @nombre_usuario, @clave, @id_rol)");
             return result.recordset[0];
         } catch (error) {
             console.log(error);

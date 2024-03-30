@@ -50,7 +50,7 @@ class Tutor {
         }
     }
 
-    async createTutor(tutor) {
+    /**async createTutor(tutor) {
         try {
             const result = await pool
                 .request()
@@ -72,7 +72,24 @@ class Tutor {
             console.log(error);
             throw error;
         }
+    }*/
+
+    async createTutor(tutor) {
+        try {
+            const result = await pool
+                .request()
+                .input("id_tutor", tutor.id_tutor)
+                .input("ocupacion", tutor.ocupacion)
+                .input("correo_electronico", tutor.correo_electronico)
+                .input("telefono", tutor.telefono)
+                .query("INSERT INTO tutores (id_tutor, ocupacion, correo_electronico, telefono) OUTPUT INSERTED.* VALUES (@id_tutor, @ocupacion, @correo_electronico, @telefono)");
+            return result.recordset[0];
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
     }
+    
 }
 
 export default new Tutor();

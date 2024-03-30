@@ -1,15 +1,15 @@
 import pool from "../conection/db.js";
 
 class ExpedienteEstudiantil {
-    async createExpedienteEstudiantil(idEstudiante, idRol, idInstitucionActual) {
+    async createExpedienteEstudiantil(expedienteEstudiantil) {
         try {
             const result = await pool
                 .request()
-                .input("idEstudiante", idEstudiante)
-                .input("idRol", idRol)
-                .input("idInstitucionActual", idInstitucionActual)
+                .input("id_estudiante", expedienteEstudiantil.id_estudiante)
+                .input("id_rol", expedienteEstudiantil.id_rol)
+                .input("id_institucion_actual", expedienteEstudiantil.id_institucion_actual)
                 .query(
-                    "INSERT INTO expedientes_estudiantiles (id_estudiante, id_rol, id_institucion_actual) OUTPUT INSERTED.* VALUES (@idEstudiante, @idRol, @idInstitucionActual)"
+                    "INSERT INTO expedientes_estudiantiles (id_estudiante, id_rol, id_institucion_actual) OUTPUT INSERTED.* VALUES (@id_estudiante, @id_rol, @id_institucion_actual)"
                 );
             return result.recordset[0];
         } catch (error) {

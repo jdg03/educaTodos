@@ -21,7 +21,7 @@ router.get('/expedienteEstudiante', vistasController.expedienteEstudiante)
 router.get('/bienvenido',verifyToken, vistasController.bienvenido);
 
 //ruta que muestra un mensaje que confirma la creacion del expediente
-router.get('/expedienteCreado',verifyToken, vistasController.expedienteCreado);
+router.get('/expedienteCreado',vistasController.expedienteCreado);
 
 
 
