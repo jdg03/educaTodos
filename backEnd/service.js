@@ -62,6 +62,7 @@ import routerUsuarios from "./routes/usuarios.route.js"
 import routeCrearExpediente from "./routes/expediente.route.js"
 import routeExpediente from "./routes/expedienteEstudiantil.route.js";
 import routerInstitucion from "./routes/institucion.route.js";
+import routerMatricula from "./routes/matricula.route.js";
 
 
 app.use(routerVistas);
@@ -72,4 +73,5 @@ app.use(routerUsuarios);
 app.use(routeCrearExpediente);
 app.use(routeExpediente);
 app.use(routerInstitucion)
+app.use(routerMatricula);
 
