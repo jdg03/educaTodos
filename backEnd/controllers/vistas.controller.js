@@ -47,6 +47,12 @@ export const institutos = async (req, res) => {
   res.render(ruta + "/institutos", { user });
 };
 
+export const matricula = async (req, res) => {
+  const user = req.user;
+  res.render(ruta + "/matriculainstituto", { user });
+};
+
+
 
 export const vistasController = {
   login,
@@ -56,5 +62,6 @@ export const vistasController = {
   expedienteEstudiante,
   expediente,
   expedienteCreado,
-  institutos
+  institutos,
+  matricula
 };

@@ -11,46 +11,7 @@
 
 <body class="fondo">
     <!-- sección menu -->
-    <header class="header">
-        <div class="logo">
-            <img src="../img/EDUCATODOS.png" alt="">
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="/bienvenidoAdmi">Inicio</a></li>
-                <li><a href="#">Matricula</a></li>
-                <li><a href="/expedientesEstudiantiles">Expediente Estudiantil</a></li>
-                <li><a href="#">Traslado</a></li>
-                <li><a href="#">Instituciones</a></li>
-                <li><a href="#">Solicitudes</a></li>
-            </ul>
-        </nav>
-
-        <span>
-            <a class="btn"><button>
-                    <%= user.nombre%>
-                        <%=user.apellido%>
-                </button></a>
-            <a class="a" href="/logout">Cerrar Sesión</a>
-        </span>
-
-        <button class="navbar_toogle-btn">
-            <img src="../img/puntos.ico" alt="">
-        </button>
-        <div class="navbar_mobile-menu">
-            <ul class="nav-list-mobile">
-                <li class="nav_link-mobile"><a href="/bienvenidoAdmi">Inicio</a></li>
-                <li class="nav_link-mobile"><a href="#">Matricula</a></li>
-                <li class="nav_link-mobile"><a href="/expedientesEstudiantiles">Expediente Estudiantil</a></li>
-                <li class="nav_link-mobile"><a href="#">Traslado</a></li>
-                <li class="nav_link-mobile"><a href="#">Instituciones</a></li>
-                <li class="nav_link-mobile"><a href="#">Solicitudes</a></li>
-            </ul>
-        </div>
-
-        </nav>
-    </header>
-
+    <%-include("./partials/header") %>
     <!-- sección Bienvenida -->
     <div class="bienvenida">
         <h2>Matricula</h2>
@@ -61,22 +22,7 @@
         <div class="nombre">
             <h1>Instituto Gubernamental España Jesus Milla Selva</h1>
         </div>
-        <div class="informacion">
-            <div class="infogeneral">
-                <h2>Información del Estudiante</h2>
-                <div class="campos">
-
-                    <p>Nombre Completo: </p>
-                    <p>DNI: </p>
-                    <p>Nacionalidad: </p>
-                    <p>Fecha de nacimiento:</p>
-                    <p>Genero:</p>
-                    <p>Dirección:</p>
-                    <p>Número de Teléfono: </p>
-                    <p>Foto tamaño carnet:</p>
-                    <p>Partida de nacimiento:</p>
-                </div>
-            </div>
+        
 
             <div class="infoacademica">
                 <h2>Información Académica</h2>
@@ -117,14 +63,20 @@
                               
                     </select>
                 </div>
+                <div class="regresar">
+                    <a href="/institutos">
+                        <button class="button2" type="submit">Matricular en otra institución</button>
+                    </a>
+        
+                    <a href="">
+                        <button class="button1" type="submit">Confirmar matricula</button> 
+                    </a>
+                </div>
             </div>
-        </div>
-    </div>
+            </div>
+            
 
-    <div class="regresar">
-        <button class="button1" type="submit">Confirmar matricula</button> 
-        <button class="button2" type="submit">Matricular en otra institución</button>
-        <button class="button" type="submit">Cancelar</button>
+        
     </div>
 
     <footer>

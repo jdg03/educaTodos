@@ -25,7 +25,9 @@ router.get('/expedienteCreado',vistasController.expedienteCreado);
 //ruta que lleva a la pagina de bienvenido protegida con middleware
 router.get('/bienvenido',verifyToken, vistasController.bienvenido);
 
-router.get('/institutos',verifyToken, vistasController.institutos)
+router.get('/institutos',verifyToken, vistasController.institutos);
+router.get('/matricula',verifyToken, vistasController.matricula);
+
 
 
 
