@@ -101,7 +101,6 @@ body {
     height: 60%;
     border: 1px solid thistle;
     border-radius: 15px;
-
 }
 
 .search-container .search-icon {
@@ -129,7 +128,7 @@ body {
 .search select {
     height: 60%;
     width: 18%;
-    margin-top: 0.7%;
+    margin-top: 1%;
     border: 1px solid thistle;
     border-radius: 15px;
 }
