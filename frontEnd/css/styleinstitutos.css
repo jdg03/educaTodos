@@ -8,7 +8,7 @@ body {
 }
 
 .fondo {
-    /*background: linear-gradient(rgba(255, 224, 157, 0.75), rgba(255, 224, 157, 0.75)), url("/img/inicio.jpg");*/
+    /*background: linear-gradient(rgba(255, 224, 157, 0.75), rgba(255, 224, 157, 0.75)), url("../img/inicio.jpg");*/
     background-color: rgb(255, 225, 164);
     background-size: cover;
     align-items: center;
@@ -109,6 +109,15 @@ body {
     padding-left: 0.5%;
 }
 
+.search-container input:hover {
+    cursor: text;
+}
+
+.search select:hover {
+    cursor: pointer;
+    border: 2px solid thistle;
+}
+
 .search label {
     font-size: 20px;
     margin-left: -23%;
@@ -157,6 +166,7 @@ body {
     border: 1px solid white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
     transform: scale(1.02);
+    cursor: pointer;
 }
 
 .img-instituto {
