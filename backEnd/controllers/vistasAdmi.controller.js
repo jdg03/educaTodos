@@ -1,4 +1,7 @@
 import { rutaAdmi } from "../service.js";
+import Instituto from "../models/institucion.model.js";
+import Usuario from "../models/usuarios.model.js"
+
 //renderiza la vista del administrador
 export const bienvenidoAdmi = async (req, res) => {
   const user = req.user;
@@ -20,14 +23,18 @@ export const solicitudes = async (req, res) => {
   res.render(rutaAdmi + "/solicitudes", { user });
 };
 
-export const institucionesAdmi = async (req, res)=>{
+export const institucionesAdmi = async (req, res) => {
   const user = req.user;
-  res.render(rutaAdmi + "/tablainstitutos", { user });
+
+  const institutos = await Instituto.getAll();
+  res.render(rutaAdmi + "/tablainstitutos", { user, institutos });
 }
 
-export const usuarios = async(req, res) =>{
+export const usuarios = async (req, res) => {
   const user = req.user;
-  res.render(rutaAdmi + "/tablausuarios", { user });
+
+  const usuarios = await Usuario.getAllUsers()
+  res.render(rutaAdmi + "/tablausuarios", { user, usuarios});
 }
 
 export const vistasAdmiController = {

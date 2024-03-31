@@ -1,11 +1,11 @@
 import pool from "../conection/db.js";
 
 class Matricula {
-    async createMatricula(matricula) {
+    async createMatricula(matricula, id_usuario) {
         try {
             const result = await pool
                 .request()
-                .input("id_estudiante", matricula.id_usuario)
+                .input("id_estudiante", id_usuario)
                 .input("id_rol", 1)
                 .input("id_grado_seccion", matricula.grado_seccion)
                 .input("id_institucion", matricula.institucion)

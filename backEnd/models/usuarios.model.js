@@ -44,7 +44,7 @@ class Usuario {
 
     async getAllUsers() {
         try {
-            const result = await pool.request().query("SELECT * FROM usuarios");
+            const result = await pool.request().query("SELECT u.id_usuario, p.primer_nombre nombre , r.rol, u.nombre_usuario username FROM usuarios u INNER JOIN roles r on u.id_rol = r.id_rol INNER JOIN personas p on u.id_usuario = p.id_persona");
             return result.recordset;
         } catch (error) {
             console.log(error);
