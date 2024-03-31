@@ -100,6 +100,7 @@ body {
     width: 65%;
     height: 60%;
     border: 1px solid thistle;
+    border-radius: 15px;
 
 }
 
@@ -130,7 +131,7 @@ body {
     width: 18%;
     margin-top: 0.7%;
     border: 1px solid thistle;
-
+    border-radius: 15px;
 }
 
 
