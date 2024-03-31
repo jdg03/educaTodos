@@ -1,4 +1,6 @@
 import { ruta } from "../service.js";
+import Instituto from "../models/institucion.model.js";
+import grado_seccionModel from "../models/grado_seccion.model.js";
 
 // controlador para renderizar las vistas
 
@@ -44,12 +46,18 @@ export const bienvenido = async (req, res) => {
 
 export const institutos = async (req, res) => {
   const user = req.user;
-  res.render(ruta + "/institutos", { user });
+
+  const institutos = await Instituto.getAll();
+
+  res.render(ruta + "/institutos", { user, institutos });
 };
 
 export const matricula = async (req, res) => {
   const user = req.user;
-  res.render(ruta + "/matriculainstituto", { user });
+
+  const secciones = await grado_seccionModel.getGradosByInstitute(1)
+
+  res.render(ruta + "/matriculainstituto", { user, secciones });
 };
 
 

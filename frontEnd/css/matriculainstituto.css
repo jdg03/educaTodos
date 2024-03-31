@@ -51,6 +51,7 @@ hr {
 .nombre h1 {
     margin-left: 3%;
      margin-top: 2%;
+    text-align: center;
 }
 
 .informacion {
@@ -104,9 +105,10 @@ hr {
 .infoacademica h2 {
     font-size: 25px;
     margin-bottom: 10px;
-    margin-left: 28%;
+    margin-left: 68%;
     margin-top: 5%;
     color: #003049;
+    text-align: center;
 }
 
 .infoacademica h3 {

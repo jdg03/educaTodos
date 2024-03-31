@@ -37,12 +37,9 @@
                 <div class="grados">
                     <h3>Grado que desea matricular</h3>
                     <select name="grado" id="grado">
-                        <option value="septimo">Septimo</option>
-                        <option value="octavo"> Octavo</option>
-                        <option value="noveno">Noveno</option>
-                        <option value="decimo">Decimo</option>
-                        <option value="onceavo"> Onceavo</option>
-                        <option value="doceavo">Doceavo</option>                          
+                        <% secciones.forEach(seccion=> { %>
+                        <option value="<%= seccion.id %>" ><%= seccion.grado %> <%= seccion.seccion %></option>     
+                        <% }); %>                  
                     </select>
                 </div>
                 <div class="carreras">
@@ -79,13 +76,6 @@
         
     </div>
 
-    <footer>
-        <div class="footerBottom">
-            <p>EDUCATODOS &copy;2024 Diseñado por <span class="designer">Grupo 5</span></p>
-        </div>
-    </footer>
 
     <script src="../js/main.js"></script>
-</body>
-
-</html>
+    <%-include("./partials/footer") %>
