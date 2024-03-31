@@ -40,7 +40,7 @@ export const expedienteCreado = async(req, res) =>{
   res.render(ruta + "/finexpedienteEs");
 }
 
-//renderiza la vista del usuario
+//________________vistas protegidas___________________________________
 export const bienvenido = async (req, res) => {
   const user = req.user;
   res.render(ruta + "/iniciousuario", { user });
