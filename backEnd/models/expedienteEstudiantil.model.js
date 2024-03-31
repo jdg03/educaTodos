@@ -44,6 +44,19 @@ class ExpedienteEstudiantil {
             throw error;
         }
     }
+
+    async findExpedienteByEstudianteID(id){
+        try{
+            const result = await pool
+            .request()
+            .input("id_estudiante", id)
+            .query("SELECT * FROM expedientes_estudiantiles WHERE id_estudiante = @id_estudiante")
+            return result.recordset[0];
+        }catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
 }
 
 export default new ExpedienteEstudiantil();

@@ -36,9 +36,16 @@ hr {
     margin-left: 5%;
     margin-top: 1%;
     border-radius: 2%;
-
-   
     margin-bottom: 2%;
+    height: 60%;
+}
+
+.instituto > div {
+    padding: 1%;
+}
+
+.info > div{
+    margin-top: 20px;
 }
 
 .nombre {
@@ -49,24 +56,9 @@ hr {
 }
 
 .nombre h1 {
-    margin-left: 3%;
+
      margin-top: 2%;
     text-align: center;
-}
-
-.informacion {
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    display: flex;
-    margin-top: 1%;
-}
-
-.informacion h2 {
-    margin-left: 3%;
-}
-
-.informacion p {
-    margin-left: 3%;
 }
 
 .infogeneral {
@@ -166,27 +158,18 @@ hr {
     color: #ffffff;
 }
 
-.infoacademica select{
+.instituto select{
     height: 40px;
-    width: 250px;
+    width: 40%;
     font-size: 18px;
-    margin-left: 3%;
     margin-bottom: 2%;
     border-radius: 5px;
+    padding: 5px
 }
 
 .regresar{
-    margin-top: 7%;
-    display: flex;
-    margin-bottom: 5%;
-   
-   
-    display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-evenly;
-	align-items: center;
-	align-content: stretch;
+    position: absolute;
+    left: 40%;
    
 }
 

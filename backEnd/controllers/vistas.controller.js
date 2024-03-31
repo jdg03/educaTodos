@@ -1,6 +1,7 @@
 import { ruta } from "../service.js";
 import Instituto from "../models/institucion.model.js";
 import grado_seccionModel from "../models/grado_seccion.model.js";
+import expedienteEstudiantilModel from "../models/expedienteEstudiantil.model.js";
 
 // controlador para renderizar las vistas
 
@@ -57,9 +58,13 @@ export const institutos = async (req, res) => {
 export const matricula = async (req, res) => {
   const user = req.user;
 
-  const secciones = await grado_seccionModel.getGradosByInstitute(1)
+  const expediente = await  expedienteEstudiantilModel.findExpedienteByEstudianteID(user.id);
 
-  res.render(ruta + "/matriculainstituto", { user, secciones });
+  const institucion = await Instituto.findById(expediente.id_institucion_actual);
+
+  const secciones = await grado_seccionModel.getGradosByInstitute(institucion.id_institucion)
+
+  res.render(ruta + "/matriculainstituto", { user, secciones, institucion});
 };
 
 
