@@ -23,6 +23,19 @@ class Instituto {
             throw error;
         }
     }
+
+    async deleteById(id){
+        try {
+            const result = await pool
+                .request()
+                .input("id",id)
+                .query("DELETE FROM instituciones WHERE id_institucion = @id")
+            return result.recordset[0];    
+        } catch (error){
+            console.log(error);
+            throw error;
+        }
+    }
 }
 
 export default new Instituto()
