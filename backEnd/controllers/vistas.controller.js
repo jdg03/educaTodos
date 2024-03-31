@@ -29,7 +29,9 @@ export const expedienteEstudiante = async (req, res) => {
 
 export const expediente = async(req, res) =>{
 
-  res.render(ruta + "/creacionExpediente");
+  const institutos = await Instituto.getAll();
+
+  res.render(ruta + "/creacionExpediente", {institutos});
 }
 
 

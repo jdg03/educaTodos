@@ -16,6 +16,7 @@ const { JWT_SECRETO, JWT_EXPIRES_IN } = process.env;
 export const registro = async (req, res) => {
   
   const datos = req.body;
+  const instituto = req.body.instituto
 
   try {
     //const existingUser = await Usuario.findByEmail(datos.correo_electronico);
@@ -97,7 +98,7 @@ export const registro = async (req, res) => {
     const expedienteEstudiantil ={
       id_estudiante:estudiante.id_usuario,
       id_rol:estudiante.id_rol,
-      id_institucion_actual: 1
+      id_institucion_actual:instituto
     }
 
     const expedienteCreado = await ExpedienteEstudiantil.createExpedienteEstudiantil(expedienteEstudiantil);

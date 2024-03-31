@@ -188,6 +188,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-instituto">
+                    <label  for="instituto">Seleccionar el instituto que desea matricular</label>
+                    <select name="instituto" id="instituto">
+                        <% institutos.forEach(instituto=> { %>
+                            <option value="<%=instituto.id_institucion%>"><%=instituto.nombre%> -- <%=instituto.direccion%></option>
+                        <% })%>    
+                    </select>
+                </div>
             </form>
         </div>
 
@@ -203,5 +211,11 @@
     <script>
         let fileinputs = document.querySelectorAll(".input-file");
     </script>
+
+    <style>
+
+
+    </style>
+    
 
     <%- include('partials/footer') -%>

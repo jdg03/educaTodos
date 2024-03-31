@@ -188,3 +188,50 @@ label:not(.no-estilo, .no-estilo-radio), .info{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
 }
 
+.form-instituto {
+    margin-bottom: 20px;
+}
+
+.form-instituto label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    margin-left: 1%
+}
+
+
+.form-instituto select {
+    width: 98%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+    transition: border-color 0.3s ease;
+    margin-left: 1%;
+    margin-right: 1%
+}
+
+.form-instituto select:focus {
+    outline: none;
+    border-color: #5a98d6;
+}
+
+.form-instituto select option {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-instituto select::-ms-expand {
+    display: none;
+}
+
+.form-instituto select::after {
+    content: '\25BC'; /* Unicode character for dropdown arrow */
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
