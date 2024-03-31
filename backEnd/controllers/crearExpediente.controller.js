@@ -50,7 +50,7 @@ export const registro = async (req, res) => {
       segundo_nombre: datos.segundo_nombre_estudiante,
       primer_apellido: datos.primer_apellido_estudiante,
       segundo_apellido: datos.segundo_apellido_estudiante,
-      dni: datos.id_estudiante,
+      dni: datos.dni_estudiante,
       fecha_nacimiento: datos.fecha_nacimiento_estudiante,
       genero_id: datos.genero_id_estudiante
     };
@@ -137,10 +137,7 @@ export const authLoginJwt = async (req, res) => {
   }
 
   // Compara la contraseña del formulario con la del estudiante registrado
-  const contraseñaValida = await Usuario.comparePassword(
-    password,
-    usuario.clave
-  );
+  const contraseñaValida = await Usuario.comparePassword( password, usuario.clave);
 
   // Verifica si la contraseña no es válida, agregue usuario.id_rol !== 1 de momento para poder crear un administrado desde la base de datos sin tener que llenar el formulario
   if (!contraseñaValida && usuario.id_rol == 1) {
@@ -149,7 +146,7 @@ export const authLoginJwt = async (req, res) => {
   }
 
   //solo si es administrador
-  if (usuario.id_rol == 2 && usuario.clave != password) {
+  if (usuario.id_rol == 3 && usuario.clave != password) {
     console.log("Credenciales del administrador inválidas");
     return res.redirect("/login");
   }
