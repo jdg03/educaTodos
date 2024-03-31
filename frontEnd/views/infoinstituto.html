@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Instituto</title>
+    <link rel="stylesheet" href="../css/styleheader.css">
+    <link rel="stylesheet" href="../css/infoinstituto.css">
+</head>
+
+<body class="fondo">
+    <!-- sección menu -->
+    <header class="header">
+        <div class="logo">
+            <img src="../img/EDUCATODOS.png" alt="">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/bienvenidoAdmi">Inicio</a></li>
+                <li><a href="#">Matricula</a></li>
+                <li><a href="/expedientesEstudiantiles">Expediente Estudiantil</a></li>
+                <li><a href="#">Traslado</a></li>
+                <li><a href="#">Instituciones</a></li>
+                <li><a href="#">Solicitudes</a></li>
+            </ul>
+        </nav>
+
+        <span>
+            <a class="btn"><button>
+                    <%= user.nombre%>
+                        <%=user.apellido%>
+                </button></a>
+            <a class="a" href="/logout">Cerrar Sesión</a>
+        </span>
+
+        <button class="navbar_toogle-btn">
+            <img src="../img/puntos.ico" alt="">
+        </button>
+        <div class="navbar_mobile-menu">
+            <ul class="nav-list-mobile">
+                <li class="nav_link-mobile"><a href="/bienvenidoAdmi">Inicio</a></li>
+                <li class="nav_link-mobile"><a href="#">Matricula</a></li>
+                <li class="nav_link-mobile"><a href="/expedientesEstudiantiles">Expediente Estudiantil</a></li>
+                <li class="nav_link-mobile"><a href="#">Traslado</a></li>
+                <li class="nav_link-mobile"><a href="#">Instituciones</a></li>
+                <li class="nav_link-mobile"><a href="#">Solicitudes</a></li>
+            </ul>
+        </div>
+
+        </nav>
+    </header>
+
+    <!-- sección Bienvenida -->
+    <div class="bienvenida">
+        <h2>Instituciones Educativas</h2>
+    </div>
+    <hr>
+    <!-- sección informacion instituto -->
+    <div class="instituto">
+        <div class="nombre">
+            <h1>Instituto Gubernamental España Jesus Milla Selva</h1>
+        </div>
+        <div class="informacion">
+            <div class="infogeneral">
+                <h2>Información General</h2>
+                <h3>Tipo de Educación</h3>
+                <p>Educacion Media</p>
+                <h3>Dirección de la institución</h3>
+                <p>Francisco Morazan, Municiopio distrito Central, Tegucigalpa Colonia Kennedy........................</p>
+                <div class="matricular">
+                    <button class="button" type="submit">Matricular</button>
+                </div>
+            </div>
+            <div class="infoacademica">
+                <h2>Información Académica</h2>
+                <div class="grados">
+                    <h3>Grados Disponibles</h3>
+                    <p>Septimo <br>
+                        Octavo <br>
+                        Noveno <br>
+                        Decimo <br>
+                        Onceavo <br>
+                        Doceavo </p>
+                </div>
+                <div class="carreras">
+                    <h3>Carreras Disponibles</h3>
+                    <p>BTP en Contaduiria y Finanzas <br>
+                        BTP en Informatica <br>
+                        Bachiller en Ciencias Y Letras</p>
+                </div>
+                <div class="jornadas">
+                    <h3>Jornadas Disponibles</h3>
+                    <p>Matutina <br>
+                        Vespertina <br>
+                        Nocturna</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="regresar">
+        <button class="button1" type="submit">Regresar</button>
+    </div>
+
+    <footer>
+        <div class="footerBottom">
+            <p>EDUCATODOS &copy;2024 Diseñado por <span class="designer">Grupo 5</span></p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
