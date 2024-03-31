@@ -8,8 +8,8 @@
 }
 
 .fondo {
-    /*background: linear-gradient(rgba(248, 233, 150, 0.75), rgba(248, 233, 150, 0.75)), url("/img/inicio.jpg");
-    background-size: cover;*/
+    background: linear-gradient(rgba(255, 224, 157, 0.75), rgba(255, 224, 157, 0.75)), url("../img/inicio.jpg");
+    background-color: rgb(255, 225, 164);
     background-color: rgb(255, 225, 164);
     align-items: center;
     justify-content: center;
