@@ -10,7 +10,7 @@ body {
 }
 
 .fondo {
-    /*background: linear-gradient(rgba(255, 224, 157, 0.75), rgba(255, 224, 157, 0.75)), url("/img/inicio.jpg");*/
+    background: linear-gradient(rgba(255, 224, 157, 0.75), rgba(255, 224, 157, 0.75)), url("../img/inicio.jpg");
     background-color: rgb(255, 225, 164);
     background-size: cover;
     align-items: center;
@@ -31,8 +31,6 @@ hr {
     margin-left: 75px;
     height: 70px;
     width: 90%;
-    background-color: rgb(255, 225, 164);
-    /* background-color: rgb(255, 225, 164);*/
     display: flex;
 }
 
@@ -87,22 +85,7 @@ hr {
 }
 
 /* expediente*/
-.container {
-    border: #000;
-    margin-left: 75px;
-    width: 90%;
-    margin-top: 15px;
-    background-color: #333138;
-    text-decoration: none;
-    padding: 20px;
-}
 
-.container hr {
-    width: 100%;
-    margin-top: 5px;
-    margin-left: -5px;
-    border-color: #fb8500;
-}
 
 .navbar-nav {
     list-style: none;
@@ -129,11 +112,12 @@ hr {
 }
 
 .container-expedientes {
-    background-color: #fff;
+    
     padding: 20px;
     width: 90%;
     margin-left: 75px;
     margin-bottom: 20px;
+    border-radius: 2%;
 }
 
 .expediente {
@@ -147,6 +131,9 @@ hr {
     border: solid 1px #003049;
 
 
+}
+.expediente:hover{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
 }
 
 .lista {

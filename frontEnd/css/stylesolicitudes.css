@@ -8,9 +8,9 @@
 }
 
 .fondo {
-    /*background: linear-gradient(rgba(248, 233, 150, 0.75), rgba(248, 233, 150, 0.75)), url("/img/inicio.jpg");
-    background-size: cover;*/
+    background: linear-gradient(rgba(255, 224, 157, 0.75), rgba(255, 224, 157, 0.75)), url("../img/inicio.jpg");
     background-color: rgb(255, 225, 164);
+    background-size: cover;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -29,7 +29,6 @@ hr {
     margin-left: 75px;
     height: 70px;
     width: 90%;
-    background-color: rgb(255, 225, 164);
     display: flex;
 }
 
@@ -107,12 +106,16 @@ section.servicios {
 }
 
 .servicios .fila .col .card {
-    border: 1px solid #ce4d02;
-    height: 380px;
-    background-color: #eaaf6b;
+    height: 370px;
+    background-color: rgba(246, 246, 246, 0.3);
     padding: 30px;
     border-radius: 20px;
     position: relative;
+}
+
+.servicios .fila .col .card:hover {
+   
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
 }
 
 .imagen i {
