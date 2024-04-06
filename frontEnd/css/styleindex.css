@@ -22,12 +22,24 @@
 }
 
 .inicio .fila{
+  
   display: flex;
-  margin-top: 50px;
-  padding-bottom: 100px;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+  
 }
 .inicio .fila .col{
-  width: 50%;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+
+  text-align: center;
 }
 .inicio .fila .col h2{
   margin-bottom: 15px;

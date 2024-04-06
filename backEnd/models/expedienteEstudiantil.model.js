@@ -6,10 +6,10 @@ class ExpedienteEstudiantil {
             const result = await pool
                 .request()
                 .input("id_estudiante", expedienteEstudiantil.id_estudiante)
-                .input("id_rol", expedienteEstudiantil.id_rol)
+                .input("id_tutor", expedienteEstudiantil.id_tutor) // Nuevo campo id_tutor
                 .input("id_institucion_actual", expedienteEstudiantil.id_institucion_actual)
                 .query(
-                    "INSERT INTO expedientes_estudiantiles (id_estudiante, id_rol, id_institucion_actual) OUTPUT INSERTED.* VALUES (@id_estudiante, @id_rol, @id_institucion_actual)"
+                    "INSERT INTO expedientes_estudiantiles (id_estudiante, id_tutor, id_institucion_actual) OUTPUT INSERTED.* VALUES (@id_estudiante, @id_tutor, @id_institucion_actual)"
                 );
             return result.recordset[0];
         } catch (error) {

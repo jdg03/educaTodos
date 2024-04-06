@@ -4,9 +4,14 @@ import Tutor from "../models/tutor.model.js";
 
 
 
+
 export const crearExpedienteEstudiantil = async (req,res) => {
 
+    const tutor =req.user;
+
     const datos = req.body;
+    const instituto = req.instituto;
+
 
     const personaEstudiante = {
         primer_nombre: datos.primer_nombre_estudiante,
@@ -17,5 +22,21 @@ export const crearExpedienteEstudiantil = async (req,res) => {
         fecha_nacimiento: datos.fecha_nacimiento_estudiante,
         genero_id: datos.genero_id_estudiante
       };
+
+      const personaEstudianteCreada = await Persona.createPersona(personaEstudiante);
+
+      //logica para guardar los archivos y que pertenezcan a tutor.id y estudiante.id
+
+    //crea el expediente con los datos de tutor.id estudiante.id_usuario y institucion = 1
+    const expedienteEstudiantil ={
+      id_estudiante:personaEstudianteCreada.id_persona,
+      id_tutor:tutor.id_tutor,
+      id_institucion_actual:instituto
+    }
+
+    const expedienteCreado = await ExpedienteEstudiantil.createExpedienteEstudiantil(expedienteEstudiantil);
+    console.log("se creo el expediente:"+expedienteCreado.id_expediente);  
+
+    return res.redirect("/bienvenido");
 
 }

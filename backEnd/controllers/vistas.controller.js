@@ -38,14 +38,17 @@ export const expedienteCreado = async(req, res) =>{
 
 //________________vistas protegidas___________________________________
 
-export const expedienteEstudiante = async (req, res) => {
-  
-  res.render(ruta + "/expedienteEstudiante");
-};
 
 export const bienvenido = async (req, res) => {
   const user = req.user;
   res.render(ruta + "/iniciousuario", { user });
+};
+
+export const expedienteEstudiante = async (req, res) => {
+
+  const institutos = await Instituto.getAll();
+  
+  res.render(ruta + "/expedienteEstudiante", {institutos});
 };
 
 export const institutos = async (req, res) => {
