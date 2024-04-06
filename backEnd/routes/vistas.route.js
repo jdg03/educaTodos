@@ -23,13 +23,15 @@ router.get('/expedienteCreado',vistasController.expedienteCreado);
 //____________________Rutas protegidas_______________________________
 
 //ruta que lleva a la pagina de bienvenido protegida con middleware
+router.get('/bienvenido',verifyToken, vistasController.bienvenido);
 
 router.get('/expedienteEstudiante', verifyToken, vistasController.expedienteEstudiante)
 
-router.get('/bienvenido',verifyToken, vistasController.bienvenido);
-
 router.get('/institutos',verifyToken, vistasController.institutos);
+
 router.get('/matricula',verifyToken, vistasController.matricula);
+
+
 
 
 

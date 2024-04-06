@@ -41,6 +41,7 @@ export const expedienteCreado = async(req, res) =>{
 
 export const bienvenido = async (req, res) => {
   const user = req.user;
+  console.log("id"+user.id_usuario);
   res.render(ruta + "/iniciousuario", { user });
 };
 

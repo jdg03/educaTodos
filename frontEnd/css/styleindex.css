@@ -54,7 +54,7 @@
 .inicio .fila .col button{
   background: none;
   width: fit-content;
-  padding: 5px 40px;
+  padding: 10%;
   border: 2px solid #ff762d;
   color: #fff;
   background:linear-gradient(to right, #ff5b00, #ff9900);
@@ -62,6 +62,7 @@
   cursor: pointer;
   font-size: 20px;
   border-radius: 10px;
+  margin-top: 4%;
 }
 
 .inicio .fila .col button:hover{
@@ -72,7 +73,7 @@
 
 /*Servicios*/
 .servicios{
-  max-width: 1100px;
+  max-width: 80%;
   margin: auto;
   padding: 0 20px;
   position: relative;
@@ -80,6 +81,7 @@
   z-index: 10;
   height: 40vh;
 }
+
 .servicios .fila{
   display: flex;
 	flex-direction: row-reverse;
@@ -97,11 +99,12 @@
 
 .servicios .fila .col .card{
  
-  height: 350px;
-  background-color: rgba(242, 239, 234, 0.5);
-  padding: 30px;
+  height: 20%;
+  background-color: rgba(242, 239, 234, 0.7);
+  padding: 5%;
   border-radius: 20px;
   position: relative;
+  margin: 2%;
 }
 
 .img{
