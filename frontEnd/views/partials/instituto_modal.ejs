@@ -1,0 +1,122 @@
+<div id="instituto_modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span> <!-- Close button -->
+        <h2>Agregar nueva institucion</h2>
+        <form id="institutionForm">
+            <div class="form-group">
+                <label for="nombre">Nombre de la institución:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="tipo_educacion">Tipo de educación:</label>
+                <select id="tipo_educacion" name="tipo_educacion" required>
+                    <option value="1">Tipo 1</option>
+                    <option value="2">Tipo 2</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <label for="departamento">Departamento:</label>
+                <select id="departamento" name="departamento" required>
+                    <option value="1">Departamento 1</option>
+                    <option value="2">Departamento 2</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" required>
+            </div>
+        
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+<script>
+
+var modal = document.getElementById("instituto_modal");
+
+var btn = document.getElementById("openModalBtn");
+
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Handle form submission
+document.getElementById("institutionForm").onsubmit = function(event) {
+    event.preventDefault();
+
+    var formData = new FormData(this);
+
+    // Send an AJAX request to add the new institution
+    fetch('/add-institution', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+
+        console.log(data);
+       
+        modal.style.display = "none";
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+};
+
+
+</script>
+
+<style>
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+</style>

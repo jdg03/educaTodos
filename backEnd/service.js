@@ -64,6 +64,7 @@ import routeCrearExpediente from "./routes/expediente.route.js"
 import routeExpediente from "./routes/expedienteEstudiantil.route.js";
 import routerInstitucion from "./routes/institucion.route.js";
 import routerMatricula from "./routes/matricula.route.js";
+import routerDireccion from "./routes/direcciones.route.js"
 
 
 app.use(routerVistas);
@@ -75,4 +76,5 @@ app.use(routeCrearExpediente);
 app.use(routeExpediente);
 app.use(routerInstitucion)
 app.use(routerMatricula);
+app.use(routerDireccion);
 
