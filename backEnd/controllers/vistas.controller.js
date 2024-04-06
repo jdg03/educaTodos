@@ -47,9 +47,11 @@ export const bienvenido = async (req, res) => {
 
 export const expedienteEstudiante = async (req, res) => {
 
+  const user = req.user;
+
   const institutos = await Instituto.getAll();
   
-  res.render(ruta + "/expedienteEstudiante", {institutos});
+  res.render(ruta + "/expedienteEstudiante", {institutos, user});
 };
 
 export const institutos = async (req, res) => {
