@@ -56,7 +56,24 @@ class ExpedienteEstudiantil {
             console.log(error);
             throw error;
         }
+
+
     }
+    async findExpedientesByTutorID(idTutor) {
+        try {
+            const result = await pool
+                .request()
+                .input("idTutor", idTutor)
+                .query(
+                    "SELECT * FROM expedientes_estudiantiles WHERE id_tutor = @idTutor"
+                );
+            return result.recordset;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+
 }
 
 export default new ExpedienteEstudiantil();
