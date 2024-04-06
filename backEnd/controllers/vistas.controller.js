@@ -41,7 +41,7 @@ export const expedienteCreado = async(req, res) =>{
 
 export const bienvenido = async (req, res) => {
   const user = req.user;
-  console.log("id"+user.id_usuario);
+
   res.render(ruta + "/iniciousuario", { user });
 };
 
@@ -63,7 +63,9 @@ export const institutos = async (req, res) => {
 export const matricula = async (req, res) => {
   const user = req.user;
 
-  const expediente = await  expedienteEstudiantilModel.findExpedienteByEstudianteID(user.id);
+  const expediente = await  expedienteEstudiantilModel.findExpedientesByTutorID(user.id);
+
+  console.log("el expediente es:"+expediente.id_expediente);
 
   const institucion = await Instituto.findById(expediente.id_institucion_actual);
 

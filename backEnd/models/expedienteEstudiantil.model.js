@@ -67,7 +67,7 @@ class ExpedienteEstudiantil {
                 .query(
                     "SELECT * FROM expedientes_estudiantiles WHERE id_tutor = @idTutor"
                 );
-            return result.recordset;
+            return result.recordset[0];
         } catch (error) {
             console.log(error);
             throw error;
