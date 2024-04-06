@@ -60,7 +60,7 @@ import routerVistasAdmi from "./routes/vistasAdmi.route.js"
 import routerGeneros from "./routes/generos.route.js"
 import routerRol from "./routes/roles.route.js";
 import routerUsuarios from "./routes/usuarios.route.js"
-import routeCrearExpediente from "./routes/expediente.route.js"
+import routeCrearExpediente from "./routes/RegistroTutor.route.js"
 import routeExpediente from "./routes/expedienteEstudiantil.route.js";
 import routerInstitucion from "./routes/institucion.route.js";
 import routerMatricula from "./routes/matricula.route.js";

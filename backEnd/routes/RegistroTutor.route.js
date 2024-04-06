@@ -1,5 +1,5 @@
 import Router from "express";
-import { expedienteController } from "../controllers/crearExpediente.controller.js";
+import { expedienteController } from "../controllers/RegistroTutor.controller.js";
 import {verifyToken} from "../middlewares/verify.js";
 
 const router = Router();

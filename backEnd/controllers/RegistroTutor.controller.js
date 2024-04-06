@@ -16,7 +16,7 @@ const { JWT_SECRETO, JWT_EXPIRES_IN } = process.env;
 export const registro = async (req, res) => {
   
   const datos = req.body;
-  const instituto = req.body.instituto
+  //const instituto = req.body.instituto
 
   try {
     //const existingUser = await Usuario.findByEmail(datos.correo_electronico);
@@ -35,7 +35,6 @@ export const registro = async (req, res) => {
     //}
 
    
-   
     const personaTutor = {
       primer_nombre: datos.primer_nombre_tutor,
       segundo_nombre: datos.segundo_nombre_tutor,
@@ -46,18 +45,9 @@ export const registro = async (req, res) => {
       genero_id: datos.genero_id_tutor
     };
 
-    const personaEstudiante = {
-      primer_nombre: datos.primer_nombre_estudiante,
-      segundo_nombre: datos.segundo_nombre_estudiante,
-      primer_apellido: datos.primer_apellido_estudiante,
-      segundo_apellido: datos.segundo_apellido_estudiante,
-      dni: datos.dni_estudiante,
-      fecha_nacimiento: datos.fecha_nacimiento_estudiante,
-      genero_id: datos.genero_id_estudiante
-    };
 
     const personaTutorCreada = await Persona.createPersona(personaTutor);
-    const personaEstudianteCreada = await Persona.createPersona(personaEstudiante);
+   
 
     //datos del nuevo tutor
     const nuevoTutor = {
@@ -72,16 +62,13 @@ export const registro = async (req, res) => {
     console.log("se inserto al tutor:" + tutorCreado.id_tutor);
 
     //crea un nombre de usuario
-    const nombreUsuario =
-    datos.primer_nombre_estudiante +
-    datos.segundo_nombre_estudiante +
-    generateRandom(4);
-    const clave = generateRandom(4);
+    const nombreUsuario = datos.primer_nombre_tutor + datos.segundo_nombre_tutor + generateRandom(4);
+    const clave = generateRandom(4);// clave aleatoria
     const hashPassword = await bcrypt.hash(clave, 8);  //encriptada de la contraseña generada aleatoriamente
 
-    //datos del nuevo usuario
+    //datos del nuevo usuario(tutor)
     const nuevoUsuario ={
-      id_usuario: personaEstudianteCreada.id_persona,
+      id_usuario: tutorCreado.id_tutor,
       nombre_usuario:nombreUsuario,
       clave:hashPassword,
       id_rol: 1
@@ -89,25 +76,16 @@ export const registro = async (req, res) => {
     }
 
     //usuario
-    const estudiante = await Usuario.createUser(nuevoUsuario);
-    console.log("estudiante creado:"+estudiante.id_estudiante);
+    const tutorUsuario = await Usuario.createUser(nuevoUsuario);
+    console.log("TutorUsuario creado:"+tutorUsuario.id_usuario);
 
-    //logica para guardar los archivos y que pertenezcan a tutor.id y estudiante.id
+    //logica para guardar los archivos y que pertenezcan a tutor.id
 
-    //crea el expediente con los datos de tutor.id estudiante.id_usuario y institucion = 1
-    const expedienteEstudiantil ={
-      id_estudiante:estudiante.id_usuario,
-      id_rol:estudiante.id_rol,
-      id_institucion_actual:instituto
-    }
-
-    const expedienteCreado = await ExpedienteEstudiantil.createExpedienteEstudiantil(expedienteEstudiantil);
-    console.log("se creo el expediente:"+expedienteCreado.id_expediente);  
 
     //envia las credenciales al correo especificado por el tutor nombre, apellido, usurio y contraseña
     sendCorreo(
-      estudiante.primer_nombre,
-      estudiante.primer_apellido,
+      personaTutorCreada.primer_nombre,
+      personaTutorCreada.primer_apellido,
       nombreUsuario,
       clave,
       tutorCreado.correo_electronico

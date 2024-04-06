@@ -22,11 +22,6 @@ export const expedienteTutor = async (req, res) => {
 };
 
 
-export const expedienteEstudiante = async (req, res) => {
-  
-  res.render(ruta + "/expedienteEstudiante");
-};
-
 
 export const expediente = async(req, res) =>{
 
@@ -42,6 +37,12 @@ export const expedienteCreado = async(req, res) =>{
 }
 
 //________________vistas protegidas___________________________________
+
+export const expedienteEstudiante = async (req, res) => {
+  
+  res.render(ruta + "/expedienteEstudiante");
+};
+
 export const bienvenido = async (req, res) => {
   const user = req.user;
   res.render(ruta + "/iniciousuario", { user });
