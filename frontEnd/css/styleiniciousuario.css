@@ -53,6 +53,15 @@ section.servicios {
 
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #fb8500;; /* Cambia el color del enlace cuando se pasa el mouse sobre él */
+}
+
 .servicios .fila {
   display: flex;
   justify-content: space-between;

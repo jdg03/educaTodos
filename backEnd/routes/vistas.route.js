@@ -15,18 +15,23 @@ router.get('/expediente', vistasController.expediente)
 
 //ruta que lleva a la pagina de crear expediente
 router.get('/expedienteTutor', vistasController.expedienteTutor)
-router.get('/expedienteEstudiante', vistasController.expedienteEstudiante)
+
 
 //ruta que muestra un mensaje que confirma la creacion del expediente
 router.get('/expedienteCreado',vistasController.expedienteCreado);
 
-//Rutas protegidas
+//____________________Rutas protegidas_______________________________
 
 //ruta que lleva a la pagina de bienvenido protegida con middleware
+
+router.get('/expedienteEstudiante', verifyToken, vistasController.expedienteEstudiante)
+
 router.get('/bienvenido',verifyToken, vistasController.bienvenido);
 
 router.get('/institutos',verifyToken, vistasController.institutos);
 router.get('/matricula',verifyToken, vistasController.matricula);
+
+
 
 
 
