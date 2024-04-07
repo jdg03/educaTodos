@@ -151,16 +151,19 @@ body {
     width: 20%;
     height: 50%;
     margin-top: 1%;
+    
 }
 
 .instituto:hover{
-    border: 1px solid white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
     transform: scale(1.02);
+    border: 1px solid  #bd7523;
+    border-radius: 3%;
+    background-color: rgba(255, 255, 255, 0.3); 
 }
 
 .instituto:hover .img-instituto img {
     transform: scale(1.15);
+   
 }
 
 .instituto .nombre h4{
@@ -224,10 +227,11 @@ body {
 }
 
 .btn-instituto:hover {
-    color: #fb8500;
+    transform: scale(1.1);
+    
 }
 
 .instituto:hover .btn-instituto {
-    background-color: rgba(21, 21, 46, .9);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 1);
+    transform: scale(1.1);
+    
 }

@@ -11,45 +11,7 @@
 
 <body class="fondo">
     <!-- sección menu -->
-    <header class="header">
-        <div class="logo">
-            <img src="../img/EDUCATODOS.png" alt="">
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="/bienvenidoAdmi">Inicio</a></li>
-                <li><a href="#">Matricula</a></li>
-                <li><a href="/expedientesEstudiantiles">Expediente Estudiantil</a></li>
-                <li><a href="#">Traslado</a></li>
-                <li><a href="#">Instituciones</a></li>
-                <li><a href="#">Solicitudes</a></li>
-            </ul>
-        </nav>
-
-        <span>
-            <a class="btn"><button>
-                    <%= user.nombre%>
-                        <%=user.apellido%>
-                </button></a>
-            <a class="a" href="/logout">Cerrar Sesión</a>
-        </span>
-
-        <button class="navbar_toogle-btn">
-            <img src="../img/puntos.ico" alt="">
-        </button>
-        <div class="navbar_mobile-menu">
-            <ul class="nav-list-mobile">
-                <li class="nav_link-mobile"><a href="/bienvenidoAdmi">Inicio</a></li>
-                <li class="nav_link-mobile"><a href="#">Matricula</a></li>
-                <li class="nav_link-mobile"><a href="/expedientesEstudiantiles">Expediente Estudiantil</a></li>
-                <li class="nav_link-mobile"><a href="#">Traslado</a></li>
-                <li class="nav_link-mobile"><a href="#">Instituciones</a></li>
-                <li class="nav_link-mobile"><a href="#">Solicitudes</a></li>
-            </ul>
-        </div>
-
-        </nav>
-    </header>
+    <%-include("./partials/header") %>
 
     <!-- sección Bienvenida -->
     <div class="bienvenida">
@@ -68,9 +30,7 @@
                 <p>Educacion Media</p>
                 <h3>Dirección de la institución</h3>
                 <p>Francisco Morazan, Municiopio distrito Central, Tegucigalpa Colonia Kennedy........................</p>
-                <div class="matricular">
-                    <button class="button" type="submit">Matricular</button>
-                </div>
+               
             </div>
             <div class="infoacademica">
                 <h2>Información Académica</h2>
@@ -99,7 +59,7 @@
         </div>
     </div>
     <div class="regresar">
-        <button class="button1" type="submit">Regresar</button>
+        <button class="button1" type="button" onclick="window.history.back()">Regresar</button>
     </div>
 
     <footer>

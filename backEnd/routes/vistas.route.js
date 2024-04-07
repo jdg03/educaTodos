@@ -34,6 +34,8 @@ router.get('/matricula',verifyToken, vistasController.matricula);
 
 router.get('/detelleExpedienteEstudiantil', verifyToken, vistasController.verExpedientesEstudiantiles);
 
+router.get('/infoInstitutos', verifyToken, vistasController.infoInstitutos);
+
 
 
 

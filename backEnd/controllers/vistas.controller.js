@@ -82,9 +82,16 @@ export const verExpedientesEstudiantiles = async (req, res) =>{
 
   const expedientes = await expedienteEstudiantilModel.findDetalleExpedienteByTutorID(user.id);
 
-  res.render(ruta + "/detalleExpedientes", {user, expedientes});
+  res.render(ruta + "/expedientes", {user, expedientes});
 
 
+}
+
+export const infoInstitutos = async (req, res) => {
+
+  const user = req.user;
+
+  res.render(ruta + "/infoinstituto", {user});
 }
 
 
@@ -99,5 +106,6 @@ export const vistasController = {
   expedienteCreado,
   institutos,
   matricula,
-  verExpedientesEstudiantiles
+  verExpedientesEstudiantiles,
+  infoInstitutos
 };

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUCATODOS</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/expedientes.css">
+    <link rel="stylesheet" href="../css/styleheader.css">
+</head>
+
+<body class="fondo">
+
+    <!-- sección menu -->
+    <%-include("./partials/header") %>
+
+   
+    <!-- sección SERVICIOS -->
+    <section id="servicios" class="servicios">
+        <div class="fila">
+            <% if (expedientes && expedientes.length > 0) { %>
+                <% expedientes.forEach(expediente => { %>
+                    <div class="col">
+                        <div class="card">
+                            <div class="icono">
+                                <img src="img/matricula.ico" class="img">
+                            </div>
+                            <h3><%= expediente.primer_nombre %> <%= expediente.primer_apellido %></h3>
+                            <p>Institución Actual: <%= expediente.nombre_instituto %></p>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No hay expedientes registrados</p>
+            <% } %>
+        </div>
+    </section>
+
+    
+    <script src="../js/usuario.js"></script>
+    <%- include('partials/footer') -%>
