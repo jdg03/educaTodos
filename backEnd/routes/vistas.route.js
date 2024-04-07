@@ -2,6 +2,7 @@ import Router from "express";
 import { vistasController } from "../controllers/vistas.controller.js";
 import { verifyToken, verifyAdmin } from "../middlewares/verify.js";
 
+
 const router = Router();
 
 
@@ -30,6 +31,8 @@ router.get('/expedienteEstudiante', verifyToken, vistasController.expedienteEstu
 router.get('/institutos',verifyToken, vistasController.institutos);
 
 router.get('/matricula',verifyToken, vistasController.matricula);
+
+router.get('/detelleExpedienteEstudiantil', verifyToken, vistasController.verExpedientesEstudiantiles);
 
 
 

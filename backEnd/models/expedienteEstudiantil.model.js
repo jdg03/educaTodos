@@ -74,6 +74,29 @@ class ExpedienteEstudiantil {
         }
     }
 
+    async findDetalleExpedienteByTutorID(idTutor) {
+        try {
+            const result = await pool
+                .request()
+                .input("idTutor", idTutor)
+                .query(`
+                    SELECT p.*, ee.*, i.nombre AS nombre_instituto
+                    FROM personas p
+                    JOIN expedientes_estudiantiles ee ON p.id_persona = ee.id_estudiante
+                    JOIN tutores t ON ee.id_tutor = t.id_tutor
+                    JOIN instituciones i ON ee.id_institucion_actual = i.id_institucion
+                    WHERE t.id_tutor = @idTutor
+                `);
+            
+            return result.recordset;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+    
+    
+
 }
 
 export default new ExpedienteEstudiantil();

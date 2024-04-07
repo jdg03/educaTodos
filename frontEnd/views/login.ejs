@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +9,13 @@
     <link rel="stylesheet" href="../css/stylelogin.css">
     <link rel="stylesheet" href="../css/styleheader.css">
 </head>
+
 <body class="fondo">
-     <!-- sección menu -->
-     <header class="header">
+    <!-- sección menu -->
+    <header class="header">
         <a href="../educaTodos">
             <div class="logo">
-                <img src="../img/EDUCATODOS.png" alt="" style="margin-bottom: 6%;">
+                <img src="../img/EDUCATODOS.png" alt="" >
             </div>
         </a>
         <nav class="navbar_nav">
@@ -24,7 +26,7 @@
                 <li><a href="#"></a></li>
                 <li><a href="#"></a></li>
                 <li><a href="#"></a></li>
-           </ul>            
+            </ul>
         </nav>
         <span>
             <a class="btn" nombre="login" href="/login"><button>Iniciar Sesión</button></a>
@@ -41,55 +43,58 @@
                 <li class="nav_link-mobile"><a href="#"></a></li>
                 <li class="nav_link-mobile"><a href="#"></a></li>
                 <li class="nav_link-mobile"><a href="#"></a></li>
-           </ul>      
+            </ul>
         </div>
 
-		</nav>  
+        </nav>
     </header>
 
     <!-- sección inicio sesión -->
     <div class="contenedor-formulario" style="margin-top: 5%;">
         <div class="informacion">
             <div class="info-childs">
+               <div>
                 <h2>BIENVENIDOS</h2>
+               </div> 
                 <p>Si aún no tienes cuenta en EDUCATODOS creála a continuación</p>
                 <div class="buttonregistro">
                     <button type="submit">Registrarse</button>
                 </div>
             </div>
         </div>
-    
-            <div class="form-information">
-                <div class="form-information-childs">
-                    <h2>Iniciar Sesión</h2>
-            <form class="form" action="/loginAuth" method="POST">
-                <div class="form-group">
-                    <span>Usuario</span>
-                    <i class='bx bx-envelope'></i>
-                    <input name="nombreUsuario" placeholder="Ingrese su correo" type="text">
-                </div>
 
-                <div class="form-group">
-                    <span>Contraseña</span>
-                    <i class='bx bx-lock-alt'></i>
-                    <input name="password" placeholder="Ingrese su contraseña" type="password">
-                </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Iniciar Sesión</h2>
+                <form class="form" action="/loginAuth" method="POST">
+                    <div class="form-group">
+                        <span>Usuario <i class='bx bx-envelope'></i></span>
+                        
+                        <input name="nombreUsuario" placeholder="Ingrese su nombre de usuario" type="text">
+                    </div>
 
-                <div class="button">
-                    <button name="acceder" type="submit">Acceder</button>
-                </div>
-                
-        </form>
-                </div>
+                    <div class="form-group">
+                        <span>Contraseña <i class='bx bx-lock-alt'></i></span>
+                        
+                        <input name="password" placeholder="Ingrese su contraseña" type="password">
+                    </div>
+
+                    <div class="button">
+                        <button name="acceder" type="submit">Acceder</button>
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
 
     <footer>
         <div class="footerBottom">
-            <p>EDUCATODOS &copy;2024   Diseñado por <span class="designer">Grupo 5</span></p>
+            <p>EDUCATODOS &copy;2024 Diseñado por <span class="designer">Grupo 5</span></p>
         </div>
     </footer>
 
     <script src="../js/main.js"></script>
 </body>
+
 </html>

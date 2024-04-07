@@ -36,7 +36,7 @@ export const expedienteCreado = async(req, res) =>{
   res.render(ruta + "/finexpedienteEs");
 }
 
-//________________vistas protegidas___________________________________
+//_______________________vistas protegidas___________________________________
 
 
 export const bienvenido = async (req, res) => {
@@ -76,6 +76,17 @@ export const matricula = async (req, res) => {
   res.render(ruta + "/matriculainstituto", { user, secciones, institucion});
 };
 
+export const verExpedientesEstudiantiles = async (req, res) =>{
+
+  const user = req.user;
+
+  const expedientes = await expedienteEstudiantilModel.findDetalleExpedienteByTutorID(user.id);
+
+  res.render(ruta + "/detalleExpedientes", {user, expedientes});
+
+
+}
+
 
 
 export const vistasController = {
@@ -87,5 +98,6 @@ export const vistasController = {
   expediente,
   expedienteCreado,
   institutos,
-  matricula
+  matricula,
+  verExpedientesEstudiantiles
 };
