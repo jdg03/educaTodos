@@ -45,6 +45,29 @@ class ExpedienteEstudiantil {
         }
     }
 
+    async getAllExpedientesInfo() {
+        try {
+            const result = await pool.request().query(`
+                SELECT 
+                    ee.id_expediente,
+                    estudiante.primer_nombre AS nombre_estudiante,
+                    estudiante.primer_apellido AS apellido_estudiante,
+                    tutor.primer_nombre AS nombre_tutor,
+                    tutor.primer_apellido AS apellido_tutor,
+                    ee.id_institucion_actual
+                FROM 
+                    expedientes_estudiantiles ee
+                    INNER JOIN personas estudiante ON ee.id_estudiante = estudiante.id_persona
+                    INNER JOIN personas tutor ON ee.id_tutor = tutor.id_persona
+            `);
+            return result.recordset;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+    
+
     async findExpedienteByEstudianteID(id){
         try{
             const result = await pool

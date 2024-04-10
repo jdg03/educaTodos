@@ -1,6 +1,7 @@
 import { rutaAdmi } from "../service.js";
 import Instituto from "../models/institucion.model.js";
 import Usuario from "../models/usuarios.model.js"
+import expedienteEstudiantil from "../models/expedienteEstudiantil.model.js";
 
 //renderiza la vista del administrador
 export const bienvenidoAdmi = async (req, res) => {
@@ -10,8 +11,14 @@ export const bienvenidoAdmi = async (req, res) => {
 
 export const expedientesEstudiantiles = async (req, res) => {
   const user = req.user;
-  res.render(rutaAdmi + "/expedienteEstudiantiles", { user });
+
+  const expedientes = await expedienteEstudiantil.getAllExpedientesInfo()
+
+ // res.status(200).json(expedientes);
+
+  res.render(rutaAdmi + "/expedienteEstudiantiles", { user, expedientes});
 };
+
 
 export const detalleExpedientes = async (req, res) => {
   const user = req.user;
@@ -32,6 +39,8 @@ export const institucionesAdmi = async (req, res) => {
 
 export const usuarios = async (req, res) => {
   const user = req.user;
+
+  const expedientes = expedienteEstudiantil.getAllExpedientesEstudiantiles();
 
   const usuarios = await Usuario.getAllUsers()
   res.render(rutaAdmi + "/tablausuarios", { user, usuarios});

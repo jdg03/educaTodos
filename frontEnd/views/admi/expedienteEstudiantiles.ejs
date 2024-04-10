@@ -23,43 +23,36 @@
   
 
     <div class="container-expedientes">
-        
-        <div class="expediente" id="contenedorExpedientes" >
-            <a href="/detalleExpediente" class="lista" aria-current="true">
-                <div class="titulo">
-                    <h5 class="mb-1">Expediente id</h5>
-                    <small>Fecha</small>
-                </div>
-                <p class="mb-1">Contenido del Correo </p>
-                <small>Remitente del Correo 1</small>
-            </a>
-        </div>
 
-        <div class="expediente" id="contenedorExpedientes" >
-            <a href="/detalleExpediente" class="lista" aria-current="true">
-                <div class="titulo">
-                    <h5 class="mb-1">Expediente id</h5>
-                    <small>Fecha</small>
-                </div>
-                <p class="mb-1">Contenido del Correo </p>
-                <small>Remitente del Correo 1</small>
-            </a>
-        </div>
-
-        <div class="expediente" id="contenedorExpedientes" >
-            <a href="/detalleExpediente" class="lista" aria-current="true">
-                <div class="titulo">
-                    <h5 class="mb-1">Expediente id</h5>
-                    <small>Fecha</small>
-                </div>
-                <p class="mb-1">Contenido del Correo </p>
-                <small>Remitente del Correo 1</small>
-            </a>
-        </div>
-
-        
+        <% expedientes.forEach(expediente => { %>
+            <div class="expediente" id="contenedorExpedientes">
+                <a href="/detalleExpediente/<%= expediente.id_expediente %>" class="lista" aria-current="true">
+                    <div class="titulo">
+                        <h5 class="mb-1">Expediente: <%= expediente.id_expediente %></h5>
+                       <!-- <small>Fecha</small> -->
+                    </div>
+                    <p class="mb-1">Estudiante: <%= expediente.nombre_estudiante %> <%= expediente.apellido_estudiante %></p>
+                    <p>Tutor: <%= expediente.nombre_tutor %> <%= expediente.apellido_tutor %></p>
+                    <!-- Puedes agregar más detalles del expediente aquí -->
+                </a>
+            </div>
+        <% }) %>
 
     </div>
+
+    <!-- Aquí puedes incluir el script y otros elementos -->
+
+    <% include('../partials/footer') %>
+</body>
+</html>
+En esta plantilla, estamos iterando sobre cada expediente en el arreglo expedientes. Para cada expediente, mostramos su ID, el nombre y apellido del estudiante y del tutor. Puedes expandir esta plantilla para incluir más detalles según sea necesario. Asegúrate de tener configurado tu servidor para que use EJS como motor de plantillas y de que los datos se pasen correctamente a la vista.
+
+
+
+
+
+
+
 
     </div>
 
