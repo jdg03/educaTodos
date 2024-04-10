@@ -45,27 +45,7 @@ class ExpedienteEstudiantil {
         }
     }
 
-    async getAllExpedientesInfo() {
-        try {
-            const result = await pool.request().query(`
-                SELECT 
-                    ee.id_expediente,
-                    estudiante.primer_nombre AS nombre_estudiante,
-                    estudiante.primer_apellido AS apellido_estudiante,
-                    tutor.primer_nombre AS nombre_tutor,
-                    tutor.primer_apellido AS apellido_tutor,
-                    ee.id_institucion_actual
-                FROM 
-                    expedientes_estudiantiles ee
-                    INNER JOIN personas estudiante ON ee.id_estudiante = estudiante.id_persona
-                    INNER JOIN personas tutor ON ee.id_tutor = tutor.id_persona
-            `);
-            return result.recordset;
-        } catch (error) {
-            console.log(error);
-            throw error;
-        }
-    }
+    
     
 
     async findExpedienteByEstudianteID(id){
@@ -97,6 +77,8 @@ class ExpedienteEstudiantil {
         }
     }
 
+
+    //muestra lo expedientes(estudiantes) asociados a un tutor, se muestra en la vista expedientes del lado del tutor
     async findDetalleExpedienteByTutorID(idTutor) {
         try {
             const result = await pool
@@ -117,6 +99,106 @@ class ExpedienteEstudiantil {
             throw error;
         }
     }
+
+    //informacion preliminar de cada expediente, se muestra en la vista expedienteEstudiantiles del administrador
+    async getAllExpedientesInfo() {
+        try {
+            const result = await pool.request().query(`
+                SELECT 
+                    ee.id_expediente,
+                    estudiante.primer_nombre AS nombre_estudiante,
+                    estudiante.primer_apellido AS apellido_estudiante,
+                    tutor.primer_nombre AS nombre_tutor,
+                    tutor.primer_apellido AS apellido_tutor,
+                    ee.id_institucion_actual
+                FROM 
+                    expedientes_estudiantiles ee
+                    INNER JOIN personas estudiante ON ee.id_estudiante = estudiante.id_persona
+                    INNER JOIN personas tutor ON ee.id_tutor = tutor.id_persona
+            `);
+            return result.recordset;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+
+    //muestra la informacion detallada de cada expediente
+    async getExpedientesCompletos() {
+        try {
+            const result = await pool.request().query(`
+                SELECT 
+                    expedientes_estudiantiles.id_expediente,
+                    estudiante.primer_nombre AS estudiante_primer_nombre,
+                    estudiante.segundo_nombre AS estudiante_segundo_nombre,
+                    estudiante.primer_apellido AS estudiante_primer_apellido,
+                    estudiante.segundo_apellido AS estudiante_segundo_apellido,
+                    tutor.primer_nombre AS tutor_primer_nombre,
+                    tutor.segundo_nombre AS tutor_segundo_nombre,
+                    tutor.primer_apellido AS tutor_primer_apellido,
+                    tutor.segundo_apellido AS tutor_segundo_apellido,
+                    instituciones.nombre AS nombre_institucion,
+                    expedientes_estudiantiles.id_estudiante,
+                    tutores.id_tutor
+                FROM 
+                    expedientes_estudiantiles
+                JOIN 
+                    tutores ON expedientes_estudiantiles.id_tutor = tutores.id_tutor
+                JOIN 
+                    personas AS estudiante ON expedientes_estudiantiles.id_estudiante = estudiante.id_persona
+                JOIN 
+                    personas AS tutor ON tutores.id_tutor = tutor.id_persona
+                JOIN 
+                    instituciones ON expedientes_estudiantiles.id_institucion_actual = instituciones.id_institucion
+            `);
+            return result.recordset;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+    
+    //muestra la informacion detallada de cada expediente, lo visualizará el administrador al momento de dar click en cada expediente
+    async getExpedienteCompletoById(idExpediente) {
+        try {
+            const result = await pool.request()
+                .input('idExpediente', idExpediente)
+                .query(`
+                    SELECT 
+                        expedientes_estudiantiles.id_expediente,
+                        estudiante.primer_nombre AS estudiante_primer_nombre,
+                        estudiante.segundo_nombre AS estudiante_segundo_nombre,
+                        estudiante.primer_apellido AS estudiante_primer_apellido,
+                        estudiante.segundo_apellido AS estudiante_segundo_apellido,
+                        estudiante.dni AS estudiante_dni,
+                        tutor.primer_nombre AS tutor_primer_nombre,
+                        tutor.segundo_nombre AS tutor_segundo_nombre,
+                        tutor.primer_apellido AS tutor_primer_apellido,
+                        tutor.segundo_apellido AS tutor_segundo_apellido,
+                        tutor.dni AS tutor_dni,
+                        instituciones.nombre AS nombre_institucion,
+                        expedientes_estudiantiles.id_estudiante,
+                        tutores.id_tutor
+                    FROM 
+                        expedientes_estudiantiles
+                    JOIN 
+                        tutores ON expedientes_estudiantiles.id_tutor = tutores.id_tutor
+                    JOIN 
+                        personas AS estudiante ON expedientes_estudiantiles.id_estudiante = estudiante.id_persona
+                    JOIN 
+                        personas AS tutor ON tutores.id_tutor = tutor.id_persona
+                    JOIN 
+                        instituciones ON expedientes_estudiantiles.id_institucion_actual = instituciones.id_institucion
+                    WHERE 
+                        expedientes_estudiantiles.id_expediente = @idExpediente
+                `);
+            return result.recordset[0];
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+    
     
     
 

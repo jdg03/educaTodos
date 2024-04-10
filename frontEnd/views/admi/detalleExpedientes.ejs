@@ -25,38 +25,22 @@
         <div class="expediente">
             <h2>Expediente</h2>
             <hr class="division">
-            <p>Numero de Expediente: </p>
-            <p>Fecha de Creación: </p>
-            <p>Estado: </p>
+            <p>Numero de Expediente: <%= detalleExpediente.id_expediente %> </p>
         </div>
 
         <div class="tutor">
             <h2>Tutor</h2>
             <hr class="division">
-            <p>Nombre Completo: </p>
-            <p>DNI: </p>
-            <p>Fecha de nacimiento:</p>
-            <p>Genero:</p>
-            <p>Relación con el Estudiante:</p>
-            <p>Ocupación:</p>
-            <p>Dirección:</p>
-            <p>Correo Electrónico;</p>
+            <p>Nombre Completo: <%= detalleExpediente.tutor_primer_nombre %>  <%= detalleExpediente.tutor_segundo_nombre %> <%= detalleExpediente.tutor_primer_apellido %> <%= detalleExpediente.tutor_segundo_apellido %> <%= detalleExpediente.tutor_segundo_apellido %></p>
+            <p>DNI:  <%= detalleExpediente.tutor_dni %> </p>
             <p>Número de Teléfono:</p>
-            <p>Foto identidad: </p>
         </div>
 
         <div class="estudiante">
             <h2>Estudiante</h2>
             <hr class="division">
-            <p>Nombre Completo: </p>
-            <p>DNI: </p>
-            <p>Nacionalidad: </p>
-            <p>Fecha de nacimiento:</p>
-            <p>Genero:</p>
-            <p>Dirección:</p>
-            <p>Número de Teléfono: </p>
-            <p>Foto tamaño carnet:</p>
-            <p>Partida de nacimiento:</p>
+            <p>Nombre Completo: <%= detalleExpediente.estudiante_primer_nombre %> <%= detalleExpediente.estudiante_segundo_nombre %> <%= detalleExpediente.estudiante_primer_apellido %> <%= detalleExpediente.estudiante_segundo_apellido %></p>
+            <p>DNI:  <%= detalleExpediente.estudiante_dni %> </p>
         </div>
     </div>
 

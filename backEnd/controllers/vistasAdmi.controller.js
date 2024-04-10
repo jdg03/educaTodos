@@ -22,7 +22,13 @@ export const expedientesEstudiantiles = async (req, res) => {
 
 export const detalleExpedientes = async (req, res) => {
   const user = req.user;
-  res.render(rutaAdmi + "/detalleExpedientes", { user });
+  const id = req.params.id_expediente;
+
+  const detalleExpediente = await expedienteEstudiantil.getExpedienteCompletoById(id);
+
+   //res.status(200).json(detalleExpediente);
+
+  res.render(rutaAdmi + "/detalleExpedientes", { user, detalleExpediente});
 };
 
 export const solicitudes = async (req, res) => {
@@ -40,7 +46,6 @@ export const institucionesAdmi = async (req, res) => {
 export const usuarios = async (req, res) => {
   const user = req.user;
 
-  const expedientes = expedienteEstudiantil.getAllExpedientesEstudiantiles();
 
   const usuarios = await Usuario.getAllUsers()
   res.render(rutaAdmi + "/tablausuarios", { user, usuarios});
