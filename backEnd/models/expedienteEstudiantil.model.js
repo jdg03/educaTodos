@@ -45,8 +45,6 @@ class ExpedienteEstudiantil {
         }
     }
 
-    
-    
 
     async findExpedienteByEstudianteID(id){
         try{
