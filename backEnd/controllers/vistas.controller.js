@@ -2,6 +2,9 @@ import { ruta } from "../service.js";
 import Instituto from "../models/institucion.model.js";
 import grado_seccionModel from "../models/grado_seccion.model.js";
 import expedienteEstudiantilModel from "../models/expedienteEstudiantil.model.js";
+import Factura from "../models/facturas.model.js";
+import Producto from "../models/productos.model.js";
+
 
 // controlador para renderizar las vistas
 
@@ -101,6 +104,20 @@ export const solicitudes = async (req, res) => {
   res.render(ruta + "/solicitudes", {user});
 }
 
+export const facturas = async (req, res ) => {
+  const invoiceId = req.params.id;
+
+    try {
+        const factura = await Factura.findById(invoiceId);
+        const productos = await Producto.getProductosByFacturaId(invoiceId);
+
+        res.render(ruta + '/factura', { factura, productos  });
+    } catch (error) {
+
+        res.status(500).send('Error');
+    }
+}
+
 
 
 export const vistasController = {
@@ -115,5 +132,6 @@ export const vistasController = {
   matricula,
   verExpedientesEstudiantiles,
   infoInstitutos,
-  solicitudes
+  solicitudes,
+  facturas
 };

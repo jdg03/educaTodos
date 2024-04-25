@@ -21,6 +21,8 @@ router.get('/expedienteTutor', vistasController.expedienteTutor)
 //ruta que muestra un mensaje que confirma la creacion del expediente
 router.get('/expedienteCreado',vistasController.expedienteCreado);
 
+router.get("/factura/:id", vistasController.facturas);
+
 //____________________Rutas protegidas_______________________________
 
 //ruta que lleva a la pagina de bienvenido protegida con middleware

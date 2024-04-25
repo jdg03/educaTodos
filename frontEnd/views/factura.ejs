@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+    <style>
+        /* Estilos CSS para la factura */
+        /* Puedes personalizar esto según tus necesidades */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .factura {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+
+        .cabecera-factura {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cabecera-factura h1 {
+            margin: 0;
+        }
+
+        .detalles-factura {
+            margin-bottom: 20px;
+        }
+
+        .detalles-factura table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .detalles-factura th,
+        .detalles-factura td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .detalles-factura th {
+            background-color: #f2f2f2;
+        }
+
+        .footer-factura {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="factura">
+        <div class="cabecera-factura">
+            <h1>Factura</h1>
+        </div>
+        <div class="detalles-factura">
+            <table>
+                <tr>
+                    <th>ID de Factura</th>
+                    <td>
+                        <%= factura.id_factura %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Código de Factura</th>
+                    <td>
+                        <%= factura.codidgo %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Nombre de la Empresa</th>
+                    <td>
+                        <%= factura.nombre %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>RTN de la Empresa</th>
+                    <td>
+                        <%= factura.rtn_razon_social %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Correo de la Empresa</th>
+                    <td>
+                        <%= factura.correo_razon_social %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>CAI</th>
+                    <td>
+                        <%= factura.CAI %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Nombre del Cliente</th>
+                    <td>
+                        <%= factura.primer_nombre %>
+                            <%= factura.primer_apellido %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>RTN del Cliente</th>
+                    <td>
+                        <%= factura.rtn_cliente %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Fecha de Emisión</th>
+                    <td>
+                        <%= factura.fecha_emision %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Fecha de Pago</th>
+                    <td>
+                        <%= factura.fecha_pago %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Pagada</th>
+                    <td>
+                        <%= factura.pagada ? 'Sí' : 'No' %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Descuentos</th>
+                    <td>L
+                        <%= factura.descuentos.toFixed(2) %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Subtotal</th>
+                    <td>L
+                        <%= factura.subtotal.toFixed(2) %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>ISV</th>
+                    <td>L
+                        <%= factura.isv.toFixed(2) %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Total</th>
+                    <td>L
+                        <%= factura.total.toFixed(2) %>
+                    </td>
+                </tr>
+            </table>
+            <!-- Agregar esta sección para mostrar los productos -->
+            <div class="detalles-factura">
+                <h3>Productos:</h3>
+                <table>
+                    <tr>
+                        <th>Código</th>
+                        <th>Cantidad</th>
+                        <th>Nombre</th>
+                        <th>Precio U.</th>
+                        <th>Total</th>
+                    </tr>
+                    <% productos.forEach(function(producto) { %>
+                        <tr>
+                            <td>
+                                <%= producto.codigo %>
+                            </td>
+                            <td>
+                                <%= producto.cantidad %>
+                            </td>
+                            <td>
+                                <%= producto.nombre %>
+                            </td>
+                            <td>L
+                                <%= producto.precio.toFixed(2) %></td>
+                                <td>L
+                                    <%= producto.total.toFixed(2) %></td>
+                        </tr>
+                        <% }); %>
+                </table>
+            </div>
+
+        </div>
+        <div class="footer-factura">
+            <p>¡Gracias por su compra!</p>
+        </div>
+    </div>
+</body>
+
+</html>
