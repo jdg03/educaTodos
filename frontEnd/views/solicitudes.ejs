@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUCATODOS</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/styleiniciousuario.css">
+    <link rel="stylesheet" href="../css/styleheader.css">
+</head>
+
+<body class="fondo">
+
+    <!-- sección menu -->
+    <%-include("./partials/header") %>
+
+    <!-- sección Bienvenida -->
+    <div class="bienvenida">
+        <h2>Bienvenido <%= user.nombre %>
+            
+        </h2>
+    </div>
+    <hr>
+
+    <!-- sección SERVICIOS -->
+    <section id="servicios" class="servicios">
+        <div class="fila">
+            
+            <div class="col">
+                <div class="card">
+                    <div>
+                        <img src="img/traslado.ico" class="img">
+                    </div>
+                    <h3>Traslado de Institución</h3>
+                
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div>
+                        <img src="img/traslado.ico" class="img">
+                    </div>
+                    <h3>Cambio de sección</h3>
+                
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div>
+                        <img src="img/traslado.ico" class="img">
+                    </div>
+                    <h3>Cambio de jornada</h3>
+                
+                </div>
+            </div>
+           
+
+            
+
+            
+        </div>
+    </section>
+
+    <script src="../js/usuario.js"></script>
+    <%- include('partials/footer') -%>

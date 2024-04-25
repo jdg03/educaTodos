@@ -36,6 +36,9 @@ router.get('/detelleExpedienteEstudiantil', verifyToken, vistasController.verExp
 
 router.get('/infoInstitutos', verifyToken, vistasController.infoInstitutos);
 
+router.get('/solicitudes', verifyToken, vistasController.solicitudes);
+
+
 
 
 

@@ -94,6 +94,13 @@ export const infoInstitutos = async (req, res) => {
   res.render(ruta + "/infoinstituto", {user});
 }
 
+export const solicitudes = async (req, res) => {
+
+  const user = req.user;
+
+  res.render(ruta + "/solicitudes", {user});
+}
+
 
 
 export const vistasController = {
@@ -107,5 +114,6 @@ export const vistasController = {
   institutos,
   matricula,
   verExpedientesEstudiantiles,
-  infoInstitutos
+  infoInstitutos,
+  solicitudes
 };
