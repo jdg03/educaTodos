@@ -33,7 +33,7 @@ export const detalleExpedientes = async (req, res) => {
 
 export const solicitudes = async (req, res) => {
   const user = req.user;
-  res.render(rutaAdmi + "/solicitudes", { user });
+  res.render(rutaAdmi + "/solicitudesAdmi", { user });
 };
 
 export const institucionesAdmi = async (req, res) => {

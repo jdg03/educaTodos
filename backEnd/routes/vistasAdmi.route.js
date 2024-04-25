@@ -11,7 +11,7 @@ router.get('/expedientesEstudiantiles', verifyToken, verifyAdmin, vistasAdmiCont
 
 router.get('/detalleExpediente/:id_expediente', verifyToken, verifyAdmin, vistasAdmiController.detalleExpedientes);
 
-router.get('/solicitudes', verifyToken, verifyAdmin, vistasAdmiController.solicitudes);
+router.get('/solicitudesAdmi', verifyToken, verifyAdmin, vistasAdmiController.solicitudes);
 
 router.get('/institucionesAdmi', verifyToken, verifyAdmin, vistasAdmiController.institucionesAdmi);
 
